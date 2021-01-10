@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Wyzwanie Less Waste</string>
-    <string name="zasady_wyzwania">Zasady wyzwania</string>
     <string name="lekcja_5">Lekcja 5</string>
     <string name="lekcja_4">Lekcja 4</string>
     <string name="lekcja_3">Lekcja 3</string>
@@ -11,4 +10,7 @@
     <string name="lekcja_8">Lekcja 8</string>
     <string name="lekcja_9">Lekcja 9</string>
     <string name="lekcja_10">Lekcja 10</string>
+    <string name="zasady_wyzwania">Zasady wyzwania</string>
+    <string name="rozpocznij_wyzwanie">Rozpocznij wyzwanie</string>
+    <string name="todo">TODO</string>
 </resources>
