@@ -28,11 +28,11 @@ public class NotificationHelper {
 
         Intent intent = new Intent(mContext, NotificationActivity.class);
 
-        MyDBHandler myDBHandler = new MyDBHandler( mContext, null, null,2);
+        MyDBHandler myDBHandler = new MyDBHandler( mContext, null, null,3);
 
 
-        int min = 1, max = 84, id;
-        id = (int)Math.floor((Math.random() * 84) + 1);
+        int id;
+        id = (int)Math.floor((Math.random() * 93) + 1);
 
 
 
@@ -59,6 +59,7 @@ public class NotificationHelper {
             int importance = NotificationManager.IMPORTANCE_HIGH;
             NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "NOTIFICATION_CHANNEL_NAME", importance);
             notificationChannel.enableLights(true);
+            mBuilder.setLights(Color.GREEN, 500, 500);
             notificationChannel.enableVibration(true);
             assert notificationManager != null;
             mBuilder.setChannelId(NOTIFICATION_CHANNEL_ID);
@@ -69,4 +70,50 @@ public class NotificationHelper {
 
 
     }
+
+    void createChallengeStepsNotification(){
+
+        Intent intent = new Intent(mContext, NotificationActivity.class);
+
+        MyDBHandler myDBHandler = new MyDBHandler( mContext, null, null,3);
+
+
+
+
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        PendingIntent resultPendingIntent = PendingIntent.getActivity(mContext,0,intent,PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(mContext, "1100");
+        mBuilder.setSmallIcon(R.drawable.ic_stat_name);
+        mBuilder.setContentTitle( myDBHandler.loadChallengeNotificationRow1(1));
+        mBuilder.setContentText(myDBHandler.loadChallengeNotificationRow2(2));
+        mBuilder.setStyle(new NotificationCompat.BigTextStyle());
+        mBuilder.setPriority(Notification.PRIORITY_MAX);
+        mBuilder.setSound(Settings.System.DEFAULT_NOTIFICATION_URI);
+        mBuilder.setVibrate(new long[]{1000});
+        mBuilder.setContentIntent(resultPendingIntent);
+        mBuilder.setAutoCancel(false);
+
+
+        NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            int importance = NotificationManager.IMPORTANCE_HIGH;
+            NotificationChannel notificationChannel = new NotificationChannel(NOTIFICATION_CHANNEL_ID, "NOTIFICATION_CHANNEL_NAME", importance);
+            notificationChannel.enableLights(true);
+            mBuilder.setLights(Color.GREEN, 500, 500);
+            notificationChannel.enableVibration(true);
+            assert notificationManager != null;
+            mBuilder.setChannelId(NOTIFICATION_CHANNEL_ID);
+            notificationManager.createNotificationChannel(notificationChannel);
+        }
+        assert notificationManager != null;
+        notificationManager.notify(0,mBuilder.build());
+
+
+    }
+
+
 }

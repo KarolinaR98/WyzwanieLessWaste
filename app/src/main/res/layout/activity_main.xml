@@ -4,43 +4,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/bg">
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="139dp"
-        android:layout_height="115dp"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="100dp"
-        android:src="@android:drawable/sym_def_app_icon"
+        android:contentDescription="TODO"
+        android:src="@drawable/logo"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/todo" />
+        tools:visibility="visible" />
 
     <Button
         android:id="@+id/zasadyWyzwania"
-        android:layout_width="0dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="150dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="100dp"
         android:text="@string/zasady_wyzwania"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textColor="#658361"
+        android:background="@drawable/custom_button"/>
 
     <Button
         android:id="@+id/rozpocznijWyzwanie"
-        android:layout_width="0dp"
+        android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="100dp"
+        android:layout_marginBottom="100dp"
         android:text="@string/rozpocznij_wyzwanie"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/zasadyWyzwania" />
+        app:layout_constraintTop_toBottomOf="@+id/zasadyWyzwania"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        android:textColor="#658361"
+        android:background="@drawable/custom_button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

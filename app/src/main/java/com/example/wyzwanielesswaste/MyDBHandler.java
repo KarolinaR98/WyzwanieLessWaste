@@ -1,5 +1,6 @@
 package com.example.wyzwanielesswaste;
 
+import android.content.ContentValues;
 import android.database.sqlite.SQLiteAbortException;
 import android.content.Context;
 import android.database.Cursor;
@@ -17,7 +18,7 @@ import java.io.IOException;
 
 public class MyDBHandler extends SQLiteOpenHelper{
 
-    public static final int DB_VERSION = 2;
+    public static final int DB_VERSION = 3;
     private static final String DB_NAME = "DATABASE.db";
     private static final String DB_PATH = "/data/data/com.example.wyzwanielesswaste/databases/";
     SQLiteDatabase myDataBase;
@@ -138,6 +139,143 @@ public class MyDBHandler extends SQLiteOpenHelper{
         while (c.moveToNext()){
             String result_Text = c.getString(2);
             result += result_Text;
+        }
+        c.close();
+        db.close();
+
+        return result;
+    }
+
+    public String loadChallengeTitle(int id){
+        try{
+            createDatabase();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        String result = "";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM Levels WHERE id = '"+id+"'", null);
+
+        while (c.moveToNext()){
+            String result_Text = c.getString(1);
+            result += result_Text;
+        }
+        c.close();
+        db.close();
+
+        return result;
+    }
+
+    public String loadChallengeContent(int id){
+        try{
+            createDatabase();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        String result = "";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM Levels WHERE id = '"+id+"'", null);
+
+        while (c.moveToNext()){
+            String result_Text = c.getString(2);
+            result += result_Text;
+        }
+        c.close();
+        db.close();
+
+        return result;
+    }
+
+    public String loadChallenge(int id){
+        try{
+            createDatabase();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        String result = "";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM Levels WHERE id = '"+id+"'", null);
+
+        while (c.moveToNext()){
+            String result_Text = c.getString(3);
+            result += result_Text;
+        }
+        c.close();
+        db.close();
+
+        return result;
+    }
+
+    public String loadChallengeNotificationRow1(int id){
+        try{
+            createDatabase();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        String result = "";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM ChallengeForWeek WHERE id = '"+id+"'", null);
+
+        while (c.moveToNext()){
+            String result_Text = c.getString(1);
+            result += result_Text;
+        }
+        c.close();
+        db.close();
+
+        return result;
+    }
+
+    public String loadChallengeNotificationRow2(int id){
+        try{
+            createDatabase();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        String result = "";
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM ChallengeForWeek WHERE id = '"+id+"'", null);
+
+        while (c.moveToNext()){
+            String result_Text = c.getString(2);
+            result += result_Text;
+        }
+        c.close();
+        db.close();
+
+        return result;
+    }
+
+    public boolean updateScore(float score, int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("Score", score);
+        long result = db.update("Scores", contentValues, "id = ?", new String[] {String.valueOf(id)});
+        db.close();
+        return result > 0;
+    }
+
+
+
+    public float loadChallengeScore(int id){
+        try{
+            createDatabase();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        float result = 0 ;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM Scores WHERE id = '"+id+"'", null);
+
+        while (c.moveToNext()){
+            float result_Float = c.getFloat(2);
+            result = result_Float;
         }
         c.close();
         db.close();

@@ -13,4 +13,17 @@
     <string name="zasady_wyzwania">Zasady wyzwania</string>
     <string name="rozpocznij_wyzwanie">Rozpocznij wyzwanie</string>
     <string name="todo">TODO</string>
+    <string name="my_progress">My progress</string>
+    <string name="wyzwanie_10">Wyzwanie 10</string>
+    <string name="wyzwanie_9">Wyzwanie 9</string>
+    <string name="wyzwanie_8">Wyzwanie 8</string>
+    <string name="wyzwanie_7">Wyzwanie 7</string>
+    <string name="wyzwanie_6">Wyzwanie 6</string>
+    <string name="wyzwanie_5">Wyzwanie 5</string>
+    <string name="wyzwanie_4">Wyzwanie 4</string>
+    <string name="wyzwanie_3">Wyzwanie 3</string>
+    <string name="wyzwanie_2">Wyzwanie 2</string>
+    <string name="wyzwanie_1">Wyzwanie 1</string>
+
+
 </resources>

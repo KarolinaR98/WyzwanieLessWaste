@@ -51,13 +51,13 @@ public class MainActivity extends Activity {
 
 
 
-        MyAlarm();
+        MyAlarmDailyAdvice();
     }
 
-    public void MyAlarm() {
+    public void MyAlarmDailyAdvice() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 9);
-        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.HOUR_OF_DAY, 16);
+        calendar.set(Calendar.MINUTE, 31);
         calendar.set(Calendar.SECOND, 0);
 
         if (calendar.getTime().compareTo((new Date())) < 0)
@@ -73,6 +73,7 @@ public class MainActivity extends Activity {
             alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY,pendingIntent);
         }
     }
+
 
     public void openNewActivity(int activityNumber){
         if(activityNumber == 1){

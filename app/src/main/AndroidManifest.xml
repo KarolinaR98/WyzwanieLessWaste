@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WyzwanieLessWaste">
-        <activity android:name=".ChallengeRules"></activity>
+        <activity android:name=".SummaryOfTheWeek"></activity>
+        <activity android:name=".MyAccount" />
+        <activity android:name=".ChallengeContent" />
+        <activity android:name=".ChallengeRules" />
         <activity android:name=".ChallengeStepsActivity" />
 
         <receiver android:name=".NotificationReceiver" />
