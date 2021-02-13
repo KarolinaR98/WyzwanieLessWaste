@@ -30,7 +30,6 @@ public class ChallengeStepsActivity extends AppCompatActivity {
         Button lesson9Button = (Button)findViewById(R.id.lesson9);
         Button lesson10Button = (Button)findViewById(R.id.lesson10);
 
-        SummaryOfTheWeek summaryOfTheWeek = new SummaryOfTheWeek();
 
         lesson2Button.setActivated(true);
         lesson3Button.setActivated(true);
@@ -58,7 +57,7 @@ public class ChallengeStepsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 ContentId = 1;
                 startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
-                summaryOfTheWeek.SetContextForQuestions(1);}
+                }
 
 
         });
@@ -69,7 +68,7 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 if(lesson2Button.isActivated()){
                     ContentId = 2;
                     startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
-                    summaryOfTheWeek.SetContextForQuestions(2);}
+                    }
                 else {
                     showToast();
 
@@ -84,7 +83,7 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 if(lesson3Button.isActivated()){
                     ContentId = 3;
                     startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
-                    summaryOfTheWeek.SetContextForQuestions(3);}
+                    }
                 else {
 
                     showToast();
@@ -100,7 +99,7 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 if(lesson4Button.isActivated()){
                     ContentId = 4;
                     startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
-                    summaryOfTheWeek.SetContextForQuestions(4);}
+                    }
                 else{
                     showToast();
                 }}
@@ -113,8 +112,7 @@ public class ChallengeStepsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(lesson5Button.isActivated()){
                     ContentId = 5;
-                    startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
-                    summaryOfTheWeek.SetContextForQuestions(5);}
+                    startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));}
                 else {
                     showToast();}}
 
@@ -126,8 +124,7 @@ public class ChallengeStepsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(lesson6Button.isActivated()){
                     ContentId = 6;
-                    startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
-                    summaryOfTheWeek.SetContextForQuestions(6);}
+                    startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class)); }
                 else {
                     showToast();
                 }}
@@ -139,8 +136,7 @@ public class ChallengeStepsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(lesson7Button.isActivated()){
                     ContentId = 7;
-                    startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
-                    summaryOfTheWeek.SetContextForQuestions(7);}
+                    startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class)); }
                 else {
                     showToast();
                 }}
@@ -153,8 +149,7 @@ public class ChallengeStepsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(lesson8Button.isActivated()){
                     ContentId = 8;
-                    startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
-                    summaryOfTheWeek.SetContextForQuestions(8);}
+                    startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class)); }
                 else {
                     showToast();
                 }}
@@ -167,8 +162,7 @@ public class ChallengeStepsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(lesson9Button.isActivated()){
                     ContentId = 9;
-                    startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
-                    summaryOfTheWeek.SetContextForQuestions(9);}
+                    startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class)); }
                 else {
                     showToast();
                 }}
@@ -182,7 +176,7 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 if(lesson10Button.isActivated()){
                     ContentId = 10;
                     startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
-                    summaryOfTheWeek.SetContextForQuestions(10);}
+                    }
                 else {
                     showToast();
                 }}

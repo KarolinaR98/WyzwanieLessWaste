@@ -16,6 +16,7 @@ public class ChallengeContent extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_challenge_content);
 
+
         TextView titleText = (TextView)findViewById(R.id.ChallengeTitle);
         TextView contentText = (TextView)findViewById(R.id.ChallengeContent);
         TextView challengeText = (TextView)findViewById(R.id.Challege);
@@ -23,11 +24,14 @@ public class ChallengeContent extends AppCompatActivity  {
 
         MyDBHandler myDBHandler = new MyDBHandler( ChallengeContent.this, null, null,3);
         ChallengeStepsActivity challengeStepsActivity = new ChallengeStepsActivity();
+        SummaryOfTheWeek summaryOfTheWeek = new SummaryOfTheWeek();
 
         quizButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
+                int id = challengeStepsActivity.GetId();
+                summaryOfTheWeek.SetContextForQuestions(id);
                 startActivity(new Intent(ChallengeContent.this, SummaryOfTheWeek.class));
 
 

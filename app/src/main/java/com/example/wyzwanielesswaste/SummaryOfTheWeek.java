@@ -40,6 +40,26 @@ public class SummaryOfTheWeek extends AppCompatActivity {
         checkBox6 = (CheckBox)findViewById(R.id.checkBox6);
         checkBox7 = (CheckBox)findViewById(R.id.checkBox7);
 
+        ChallengeStepsActivity challengeStepsActivity = new ChallengeStepsActivity();
+
+        int id = challengeStepsActivity.GetId();
+
+        if(id == 1 || id == 4 || id == 5 || id == 8){
+            checkBox5.setVisibility(View.VISIBLE);
+            checkBox6.setVisibility(View.VISIBLE);
+
+        }
+        else if (id == 2 || id == 7 || id == 9){
+            checkBox5.setVisibility(View.VISIBLE);
+        }
+        else if (id == 6){
+            checkBox5.setVisibility(View.VISIBLE);
+            checkBox6.setVisibility(View.VISIBLE);
+            checkBox7.setVisibility(View.VISIBLE);
+        }
+
+
+
 
 
 
@@ -93,6 +113,8 @@ public class SummaryOfTheWeek extends AppCompatActivity {
     void SetContextForQuestions(int id){
         switch(id) {
             case 1:
+
+
                 question1 = "•\tKrótki prysznic zamiast kąpieli";
                 question2 = "•\tMycie naczyń w zmywarce jeżeli jest w pełni zapełniona lub mycie naczyń sposobem napełnionej miski z wodą, namydlaniem a następnie spłukiwaniem wszystkiego na raz.";
                 question3 = "•\tZakręcanie wody podczas mycia zębów, namydlania rąk, mycia twarzy itp.";
@@ -100,6 +122,7 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question5 = "•\tNastawianie zawsze pełnej pralki\n";
                 question6 = "•\tWykorzystuj deszczówkę";
                 question7 = "";
+
 
 
                 scoreID = 1;
@@ -112,7 +135,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question5 = "•\tNie wyrzucanie śmieci do toalety ! – typu waciki, podpaski, chusteczki, papierki po cukierkach, patyczki do uszu, tampony itp.";
                 question6 = "";
                 question7 = "";
-
 
 
                 scoreID = 2;
@@ -141,7 +163,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
 
 
 
-
                 scoreID = 4;
                 break;
             case 5:
@@ -152,8 +173,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question5 = "•\tSzmaciane torby na zakupy, siatki na warzywa i owoce, lniane woreczki na chleb";
                 question6 = "•\tWoskowijki";
                 question7 = "";
-
-
 
 
                 scoreID = 5;
@@ -168,6 +187,7 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question7 = "•\tKupuj papier toaletowy który wyprodukowany został z makulatury\n";
 
 
+
                 scoreID = 6;
                 break;
             case 7:
@@ -180,7 +200,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question7 = "";
 
 
-
                 scoreID = 7;
                 break;
             case 8:
@@ -191,7 +210,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question5 = "•\tZnajdź sklep gdzie produkty typu kasza, orzechy, ryż można kupować na wagę – do ich pakowania wykorzystuj  własne słoiki";
                 question6 = "•\tGdy kupujesz coś na wagę – wędlina, ser – poproś sprzedawcę o zapakowanie produktu do własnego pojemnika – bez używania zbędnych folii i opakowań\n";
                 question7 = "";
-
 
 
                 scoreID = 8;
