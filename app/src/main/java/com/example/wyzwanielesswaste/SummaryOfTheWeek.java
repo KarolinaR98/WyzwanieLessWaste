@@ -25,12 +25,16 @@ public class SummaryOfTheWeek extends AppCompatActivity {
     public static CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7;
 
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_of_the_week);
 
         MyDBHandler myDBHandler = new MyDBHandler(SummaryOfTheWeek.this, null, null, 3);
+        MainActivity mainActivity = new MainActivity();
 
         checkBox1 = (CheckBox)findViewById(R.id.checkBox1);
         checkBox2 = (CheckBox)findViewById(R.id.checkBox2);
@@ -57,6 +61,7 @@ public class SummaryOfTheWeek extends AppCompatActivity {
             checkBox6.setVisibility(View.VISIBLE);
             checkBox7.setVisibility(View.VISIBLE);
         }
+
 
 
 
@@ -90,6 +95,69 @@ public class SummaryOfTheWeek extends AppCompatActivity {
 
             @Override
             public void onClick(View v) {
+
+                if (id == 1){
+                    mainActivity.SetChallengeWeek(0);
+                    challengeStepsActivity.isActive2 = true;
+                    toastMsg();
+
+                }
+                else if (id == 2){
+                    mainActivity.SetChallengeWeek(0);
+                    challengeStepsActivity.isActive3 = true;
+                    toastMsg();
+
+
+                }
+                else if (id == 3){
+                    mainActivity.SetChallengeWeek(0);
+                    challengeStepsActivity.isActive4 = true;
+                    toastMsg();
+
+                }
+                else if (id == 4){
+                    mainActivity.SetChallengeWeek(0);
+                    challengeStepsActivity.isActive5 = true;
+                    toastMsg();
+
+                }
+                else if (id == 5){
+                    mainActivity.SetChallengeWeek(0);
+                    challengeStepsActivity.isActive6 = true;
+                    toastMsg();
+
+                }
+                else if (id == 6){
+                    mainActivity.SetChallengeWeek(0);
+                    challengeStepsActivity.isActive7 = true;
+                    toastMsg();
+
+                }
+                else if (id == 7){
+                    mainActivity.SetChallengeWeek(0);
+                    challengeStepsActivity.isActive8 = true;
+                    toastMsg();
+
+                }
+                else if (id == 8){
+                    mainActivity.SetChallengeWeek(0);
+                    challengeStepsActivity.isActive9 = true;
+                    toastMsg();
+
+                }
+                else if (id == 9){
+                    mainActivity.SetChallengeWeek(0);
+                    challengeStepsActivity.isActive10 = true;
+                    toastMsg();
+
+                }
+                else if (id == 10){
+                    mainActivity.SetChallengeWeek(0);
+
+                }
+
+
+
                 float activeCheckMarks;
                 float checkedCheckMarks;
                 float result;
@@ -300,6 +368,10 @@ public class SummaryOfTheWeek extends AppCompatActivity {
         return numOfQuestions;
     }
 
+    public void toastMsg() {
+        Toast toast = Toast.makeText(this, "Gratulację ! Odblokowałeś nowe wyzwanie !", Toast.LENGTH_LONG);
+        toast.show();
+    }
 }
 
 

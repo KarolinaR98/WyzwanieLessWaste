@@ -4,6 +4,7 @@ import android.app.Notification;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Vibrator;
 import android.provider.Settings;
 
 import androidx.core.app.NotificationCompat;
@@ -15,21 +16,26 @@ public class DailyAdviceBroadcast extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        MyDBHandler myDBHandler = new MyDBHandler(context, null,null,3);
+        MyDBHandler myDBHandler = new MyDBHandler(context, null,null,4);
 
         int id;
         id = (int)Math.floor((Math.random() * 93) + 1);
 
-        NotificationCompat.Builder notification = new NotificationCompat.Builder(context, CHANNEL_1_ID )
-        .setSmallIcon(R.drawable.ic_stat_name)
-        .setContentTitle( myDBHandler.loadHandlerTitle(id))
-        .setContentText(myDBHandler.loadHandlerText(id))
-        .setStyle(new NotificationCompat.BigTextStyle())
-        .setPriority(Notification.PRIORITY_MAX)
-        .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
-        .setAutoCancel(false)
-        .setVibrate(new long[]{1000});
 
+        Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
+
+        NotificationCompat.Builder notification = new NotificationCompat.Builder(context, CHANNEL_1_ID )
+                .setSmallIcon(R.drawable.ic_stat_name)
+                .setContentTitle( myDBHandler.loadHandlerTitle(id))
+                .setPriority(Notification.PRIORITY_MAX)
+                .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
+                .setAutoCancel(false)
+                .setVibrate(new long[]{1000})
+                .setStyle(new NotificationCompat.BigTextStyle()
+                        .bigText(myDBHandler.loadHandlerText(id)));
+
+
+        v.vibrate(500);
         NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
 
         notificationManager.notify(1, notification.build());

@@ -22,7 +22,7 @@ import java.util.Date;
 
 public class MainActivity extends Activity {
 
-
+public static int ChallengeWeek ;
 
 
     @Override
@@ -56,13 +56,12 @@ public class MainActivity extends Activity {
 
         MyAlarmWeekChallenge();
 
-        MyAlarmQestionnaireReminder();
     }
 
     public void MyAlarmDailyAdvice() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 9);
-        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
 
         if (calendar.getTime().compareTo((new Date())) < 0)
@@ -81,8 +80,8 @@ public class MainActivity extends Activity {
 
     public void MyAlarmWeekChallenge() {
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 16);
-        calendar.set(Calendar.MINUTE, 45);
+        calendar.set(Calendar.HOUR_OF_DAY, 12);
+        calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
 
         if (calendar.getTime().compareTo((new Date())) < 0)
@@ -99,25 +98,6 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void MyAlarmQestionnaireReminder() {
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 17);
-        calendar.set(Calendar.MINUTE, 36);
-        calendar.set(Calendar.SECOND, 0);
-
-        if (calendar.getTime().compareTo((new Date())) < 0)
-        {
-            calendar.add(Calendar.DAY_OF_MONTH, 1);
-        }
-
-        Intent intent = new Intent(getApplicationContext(), QuestionnaireBroadcast.class);
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(getApplicationContext(), 0, intent, 0);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
-
-        if(alarmManager != null){
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY,pendingIntent);
-        }
-    }
 
 
     public void openNewActivity(int activityNumber){
@@ -129,5 +109,15 @@ public class MainActivity extends Activity {
             startActivity(intent);}
 
         }
+
+
+     public int GetChallengeWeek(){
+        return ChallengeWeek;
+     }
+
+     public void SetChallengeWeek(int numOfWeek) {
+        ChallengeWeek = numOfWeek;
+     }
+
     }
 

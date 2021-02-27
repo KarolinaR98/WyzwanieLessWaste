@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class MyDBHandler extends SQLiteOpenHelper{
 
-    public static final int DB_VERSION = 3;
+    public static final int DB_VERSION = 4;
     private static final String DB_NAME = "DATABASE.db";
     private static final String DB_PATH = "/data/data/com.example.wyzwanielesswaste/databases/";
     SQLiteDatabase myDataBase;
@@ -281,5 +281,35 @@ public class MyDBHandler extends SQLiteOpenHelper{
         db.close();
 
         return result;
+    }
+
+    public int loadCheckIfChallengeIsActive(int id){
+        try{
+            createDatabase();
+        }catch (IOException e){
+            e.printStackTrace();
+        }
+        int result = 0;
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor c = db.rawQuery("SELECT * FROM ChallengeForWeek WHERE id = '"+id+"'", null);
+
+        while (c.moveToNext()){
+            int result_Text = c.getInt(3);
+            result += result_Text;
+        }
+        c.close();
+        db.close();
+
+        return result;
+    }
+
+    public boolean updateActivation(int score, int id){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("IsActivate", score);
+        long result = db.update("ChallengeForWeek", contentValues, "id = ?", new String[] {String.valueOf(id)});
+        db.close();
+        return result > 0;
     }
 }
