@@ -3,24 +3,46 @@
     package="com.example.wyzwanielesswaste">
 
     <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
 
     <application
-        android:name="App"
+        android:name=".App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WyzwanieLessWaste">
-        <activity android:name=".SummaryOfTheWeek"></activity>
+        <activity android:name=".Manager"></activity>
+        <activity android:name=".SummaryOfTheWeek" />
         <activity android:name=".MyAccount" />
         <activity android:name=".ChallengeContent" />
         <activity android:name=".ChallengeRules" />
         <activity android:name=".ChallengeStepsActivity" />
 
-        <receiver android:name=".DailyAdviceBroadcast"/>
-        <receiver android:name=".WeekChallengeBroadcast"/>
-        <receiver android:name=".QuestionnaireBroadcast"/>
+        <receiver android:name=".DailyAdviceBroadcast" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+
+        <receiver android:name=".WeekChallengeBroadcast" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
+
+        <receiver android:name=".QuestionnaireBroadcast" android:enabled="true" android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
+
 
         <activity android:name=".MainActivity">
             <intent-filter>

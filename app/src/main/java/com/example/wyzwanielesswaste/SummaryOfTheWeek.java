@@ -33,7 +33,7 @@ public class SummaryOfTheWeek extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_of_the_week);
 
-        MyDBHandler myDBHandler = new MyDBHandler(SummaryOfTheWeek.this, null, null, 3);
+        MyDBHandler myDBHandler = new MyDBHandler(SummaryOfTheWeek.this, null, null, 6);
         MainActivity mainActivity = new MainActivity();
 
         checkBox1 = (CheckBox)findViewById(R.id.checkBox1);
@@ -97,62 +97,62 @@ public class SummaryOfTheWeek extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (id == 1){
-                    mainActivity.SetChallengeWeek(0);
-                    challengeStepsActivity.isActive2 = true;
+                    myDBHandler.updateButtonActivation(1,id + 1);
+                    myDBHandler.updateChallengeWeek(0);
                     toastMsg();
 
                 }
                 else if (id == 2){
-                    mainActivity.SetChallengeWeek(0);
-                    challengeStepsActivity.isActive3 = true;
+                    myDBHandler.updateButtonActivation(1,id + 1);
+                    myDBHandler.updateChallengeWeek(0);
                     toastMsg();
 
 
                 }
                 else if (id == 3){
-                    mainActivity.SetChallengeWeek(0);
-                    challengeStepsActivity.isActive4 = true;
+                    myDBHandler.updateButtonActivation(1,id + 1);
+                    myDBHandler.updateChallengeWeek(0);
                     toastMsg();
 
                 }
                 else if (id == 4){
-                    mainActivity.SetChallengeWeek(0);
-                    challengeStepsActivity.isActive5 = true;
+                    myDBHandler.updateButtonActivation(1,id + 1);
+                    myDBHandler.updateChallengeWeek(0);
                     toastMsg();
 
                 }
                 else if (id == 5){
-                    mainActivity.SetChallengeWeek(0);
-                    challengeStepsActivity.isActive6 = true;
+                    myDBHandler.updateButtonActivation(1,id + 1);
+                    myDBHandler.updateChallengeWeek(0);
                     toastMsg();
 
                 }
                 else if (id == 6){
-                    mainActivity.SetChallengeWeek(0);
-                    challengeStepsActivity.isActive7 = true;
+                    myDBHandler.updateButtonActivation(1,id + 1);
+                    myDBHandler.updateChallengeWeek(0);
                     toastMsg();
 
                 }
                 else if (id == 7){
-                    mainActivity.SetChallengeWeek(0);
-                    challengeStepsActivity.isActive8 = true;
+                    myDBHandler.updateButtonActivation(1,id + 1);
+                    myDBHandler.updateChallengeWeek(0);
                     toastMsg();
 
                 }
                 else if (id == 8){
-                    mainActivity.SetChallengeWeek(0);
-                    challengeStepsActivity.isActive9 = true;
+                    myDBHandler.updateButtonActivation(1,id + 1);
+                    myDBHandler.updateChallengeWeek(0);
                     toastMsg();
 
                 }
                 else if (id == 9){
-                    mainActivity.SetChallengeWeek(0);
-                    challengeStepsActivity.isActive10 = true;
+                    myDBHandler.updateButtonActivation(1,id + 1);
+                    myDBHandler.updateChallengeWeek(0);
                     toastMsg();
 
                 }
                 else if (id == 10){
-                    mainActivity.SetChallengeWeek(0);
+                    myDBHandler.updateChallengeWeek(0);
 
                 }
 

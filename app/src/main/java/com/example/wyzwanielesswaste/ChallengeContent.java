@@ -15,9 +15,18 @@ import java.util.Calendar;
 
 public class ChallengeContent extends AppCompatActivity  {
 
-    public static boolean TurnOnOffButton1, TurnOnOffButton2,TurnOnOffButton3,TurnOnOffButton4,TurnOnOffButton5,TurnOnOffButton6,TurnOnOffButton7,TurnOnOffButton8,TurnOnOffButton9,TurnOnOffButton10;
 
     public static int id;
+
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(this, ChallengeStepsActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,95 +39,19 @@ public class ChallengeContent extends AppCompatActivity  {
         TextView challengeText = (TextView)findViewById(R.id.Challege);
         Button quizButton = (Button)findViewById(R.id.quizButton);
 
-        MyDBHandler myDBHandler = new MyDBHandler( ChallengeContent.this, null, null,4);
+        MyDBHandler myDBHandler = new MyDBHandler( ChallengeContent.this, null, null,6);
         ChallengeStepsActivity challengeStepsActivity = new ChallengeStepsActivity();
         SummaryOfTheWeek summaryOfTheWeek = new SummaryOfTheWeek();
 
         id = challengeStepsActivity.GetId();
+        int activation = myDBHandler.loadQuestionnaireActivation(id);
 
-        if(id == 1){
-            if(TurnOnOffButton1 == true){
-                quizButton.setEnabled(true);
-            }
-            else {
-                quizButton.setEnabled(false);
-            }
+        if(activation == 0){
+            quizButton.setEnabled(false);
         }
-        else if (id == 2){
-            if(TurnOnOffButton2 == true){
-                quizButton.setEnabled(true);
-            }
-            else {
-                quizButton.setEnabled(false);
-            }
+        else {
+            quizButton.setEnabled(true);
         }
-        else if (id == 3){
-            if(TurnOnOffButton3 == true){
-                quizButton.setEnabled(true);
-            }
-            else {
-                quizButton.setEnabled(false);
-            }
-        }
-        else if (id == 4){
-            if(TurnOnOffButton4 == true){
-                quizButton.setEnabled(true);
-            }
-            else {
-                quizButton.setEnabled(false);
-            }
-        }
-        else if(id == 5){
-            if(TurnOnOffButton5 == true){
-                quizButton.setEnabled(true);
-            }
-            else {
-                quizButton.setEnabled(false);
-            }
-        }
-        else if (id == 6){
-            if(TurnOnOffButton6 == true){
-                quizButton.setEnabled(true);
-            }
-            else {
-                quizButton.setEnabled(false);
-            }
-        }
-        else if (id == 7){
-            if(TurnOnOffButton7 == true){
-                quizButton.setEnabled(true);
-            }
-            else {
-                quizButton.setEnabled(false);
-            }
-        }
-        else if (id == 8){
-            if(TurnOnOffButton8 == true){
-                quizButton.setEnabled(true);
-            }
-            else {
-                quizButton.setEnabled(false);
-            }
-        }
-        else if (id == 9){
-
-            if(TurnOnOffButton9 == true){
-                quizButton.setEnabled(true);
-            }
-            else {
-                quizButton.setEnabled(false);
-            }
-        }
-        else if (id == 10){
-            if(TurnOnOffButton10 == true){
-                quizButton.setEnabled(true);
-            }
-            else {
-                quizButton.setEnabled(false);
-            }
-
-        }
-
 
 
         quizButton.setOnClickListener(new View.OnClickListener() {

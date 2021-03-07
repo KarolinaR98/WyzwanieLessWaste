@@ -16,7 +16,7 @@ public class DailyAdviceBroadcast extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
 
-        MyDBHandler myDBHandler = new MyDBHandler(context, null,null,4);
+        MyDBHandler myDBHandler = new MyDBHandler(context, null,null,6);
 
         int id;
         id = (int)Math.floor((Math.random() * 93) + 1);
@@ -27,12 +27,13 @@ public class DailyAdviceBroadcast extends BroadcastReceiver {
         NotificationCompat.Builder notification = new NotificationCompat.Builder(context, CHANNEL_1_ID )
                 .setSmallIcon(R.drawable.ic_stat_name)
                 .setContentTitle( myDBHandler.loadHandlerTitle(id))
+                .setContentText(myDBHandler.loadHandlerText(id))
+                .setStyle(new NotificationCompat.BigTextStyle())
                 .setPriority(Notification.PRIORITY_MAX)
                 .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
                 .setAutoCancel(false)
-                .setVibrate(new long[]{1000})
-                .setStyle(new NotificationCompat.BigTextStyle()
-                        .bigText(myDBHandler.loadHandlerText(id)));
+                .setVibrate(new long[]{1000});
+
 
 
         v.vibrate(500);

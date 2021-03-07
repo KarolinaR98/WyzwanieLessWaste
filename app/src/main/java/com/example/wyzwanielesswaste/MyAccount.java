@@ -23,7 +23,7 @@ public class MyAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_account);
 
-        MyDBHandler myDBHandler = new MyDBHandler(MyAccount.this, null, null,4);
+        MyDBHandler myDBHandler = new MyDBHandler(MyAccount.this, null, null,6);
 
 
         TextView scoreWeek1 = (TextView)findViewById(R.id.percent1);

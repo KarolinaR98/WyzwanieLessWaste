@@ -22,7 +22,6 @@ import java.util.Date;
 
 public class MainActivity extends Activity {
 
-public static int ChallengeWeek ;
 
 
     @Override
@@ -30,15 +29,18 @@ public static int ChallengeWeek ;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-       Button buttonZW = (Button)findViewById(R.id.zasadyWyzwania) ;
-       Button buttonRW = (Button)findViewById(R.id.rozpocznijWyzwanie);
+        MyDBHandler myDBHandler = new MyDBHandler(this, null, null, 6);
+
+        Button buttonZW = (Button) findViewById(R.id.zasadyWyzwania);
+        Button buttonRW = (Button) findViewById(R.id.rozpocznijWyzwanie);
+
 
         buttonZW.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 openNewActivity(1);
             }
-        }) ;
+        });
 
 
         buttonRW.setOnClickListener(new View.OnClickListener() {
@@ -46,15 +48,13 @@ public static int ChallengeWeek ;
             public void onClick(View v) {
                 openNewActivity(2);
             }
-        }) ;
-
-
-
+        });
 
 
         MyAlarmDailyAdvice();
 
         MyAlarmWeekChallenge();
+
 
     }
 
@@ -111,13 +111,6 @@ public static int ChallengeWeek ;
         }
 
 
-     public int GetChallengeWeek(){
-        return ChallengeWeek;
-     }
-
-     public void SetChallengeWeek(int numOfWeek) {
-        ChallengeWeek = numOfWeek;
-     }
 
     }
 

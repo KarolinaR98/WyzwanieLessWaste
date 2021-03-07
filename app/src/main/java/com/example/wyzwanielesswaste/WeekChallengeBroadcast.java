@@ -16,22 +16,22 @@ public class WeekChallengeBroadcast extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        MyDBHandler myDBHandler = new MyDBHandler(context, null,null,4);
+        MyDBHandler myDBHandler = new MyDBHandler(context, null,null,6);
 
-        MainActivity mainActivity = new MainActivity();
-        int challengeWeek;
-        challengeWeek = mainActivity.GetChallengeWeek();
+        int challengeWeek = myDBHandler.loadChallengeWeek();
 
         Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-        if(challengeWeek != 0){ NotificationCompat.Builder notification = new NotificationCompat.Builder(context, CHANNEL_1_ID )
-                .setSmallIcon(R.drawable.ic_stat_name)
-                .setContentTitle( myDBHandler.loadChallengeNotificationRow1(challengeWeek))
-                .setContentText(myDBHandler.loadChallengeNotificationRow2(challengeWeek))
-                .setStyle(new NotificationCompat.BigTextStyle())
-                .setPriority(Notification.PRIORITY_MAX)
-                .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
-                .setAutoCancel(false)
-                .setVibrate(new long[]{1000});
+        if(challengeWeek != 0){
+            NotificationCompat.Builder notification = new NotificationCompat.Builder(context, CHANNEL_1_ID )
+                    .setSmallIcon(R.drawable.ic_stat_name)
+                    .setContentTitle( myDBHandler.loadChallengeNotificationRow1(challengeWeek))
+                    .setContentText(myDBHandler.loadChallengeNotificationRow2(challengeWeek))
+                    .setStyle(new NotificationCompat.BigTextStyle())
+                    .setPriority(Notification.PRIORITY_MAX)
+                    .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
+                    .setAutoCancel(false);
+
+
 
 
             v.vibrate(500);
