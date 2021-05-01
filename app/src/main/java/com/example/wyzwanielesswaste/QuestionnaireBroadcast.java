@@ -10,7 +10,7 @@ import android.provider.Settings;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
-import static com.example.wyzwanielesswaste.App.CHANNEL_1_ID;
+import static com.example.wyzwanielesswaste.Channel.CHANNEL_1_ID;
 
 public class QuestionnaireBroadcast extends BroadcastReceiver {
     @Override

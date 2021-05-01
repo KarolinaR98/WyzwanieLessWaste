@@ -98,57 +98,49 @@ public class SummaryOfTheWeek extends AppCompatActivity {
 
                 if (id == 1){
                     myDBHandler.updateButtonActivation(1,id + 1);
-                    myDBHandler.updateChallengeWeek(0);
-                    toastMsg();
+                    CheckIfCurrentWeek(1);
+
 
                 }
                 else if (id == 2){
                     myDBHandler.updateButtonActivation(1,id + 1);
-                    myDBHandler.updateChallengeWeek(0);
-                    toastMsg();
+                    CheckIfCurrentWeek(2);
 
 
                 }
                 else if (id == 3){
                     myDBHandler.updateButtonActivation(1,id + 1);
-                    myDBHandler.updateChallengeWeek(0);
-                    toastMsg();
+                    CheckIfCurrentWeek(3);
 
                 }
                 else if (id == 4){
                     myDBHandler.updateButtonActivation(1,id + 1);
-                    myDBHandler.updateChallengeWeek(0);
-                    toastMsg();
+                    CheckIfCurrentWeek(4);
 
                 }
                 else if (id == 5){
                     myDBHandler.updateButtonActivation(1,id + 1);
-                    myDBHandler.updateChallengeWeek(0);
-                    toastMsg();
+                    CheckIfCurrentWeek(5);
 
                 }
                 else if (id == 6){
                     myDBHandler.updateButtonActivation(1,id + 1);
-                    myDBHandler.updateChallengeWeek(0);
-                    toastMsg();
+                    CheckIfCurrentWeek(6);
 
                 }
                 else if (id == 7){
                     myDBHandler.updateButtonActivation(1,id + 1);
-                    myDBHandler.updateChallengeWeek(0);
-                    toastMsg();
+                    CheckIfCurrentWeek(7);
 
                 }
                 else if (id == 8){
                     myDBHandler.updateButtonActivation(1,id + 1);
-                    myDBHandler.updateChallengeWeek(0);
-                    toastMsg();
+                    CheckIfCurrentWeek(8);
 
                 }
                 else if (id == 9){
                     myDBHandler.updateButtonActivation(1,id + 1);
-                    myDBHandler.updateChallengeWeek(0);
-                    toastMsg();
+                    CheckIfCurrentWeek(9);
 
                 }
                 else if (id == 10){
@@ -371,6 +363,18 @@ public class SummaryOfTheWeek extends AppCompatActivity {
     public void toastMsg() {
         Toast toast = Toast.makeText(this, "Gratulację ! Odblokowałeś nowe wyzwanie !", Toast.LENGTH_LONG);
         toast.show();
+    }
+
+    public void CheckIfCurrentWeek(int weekID){
+
+        MyDBHandler myDBHandler = new MyDBHandler(this, null, null ,6);
+
+        int currentWeek = myDBHandler.loadChallengeWeek();
+
+        if(weekID == currentWeek){
+            myDBHandler.updateChallengeWeek(0);
+            toastMsg();
+        }
     }
 }
 

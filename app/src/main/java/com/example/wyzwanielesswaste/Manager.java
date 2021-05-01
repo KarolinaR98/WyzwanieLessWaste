@@ -64,7 +64,7 @@ public class Manager extends AppCompatActivity {
         void SetQuestionnaireReminder () {
             Calendar calendar = Calendar.getInstance();
             calendar.setTimeInMillis(System.currentTimeMillis());
-            calendar.add(Calendar.DAY_OF_WEEK, 1); //Minutes
+            calendar.add(Calendar.DAY_OF_WEEK, 7);
             AlarmManager alarmManager = (AlarmManager) this.getSystemService(ALARM_SERVICE);
             Intent alarmIntent = new Intent(this, QuestionnaireBroadcast.class);
             PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, alarmIntent, 0);
