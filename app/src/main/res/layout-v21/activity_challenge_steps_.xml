@@ -1,150 +1,281 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ChallengeStepsActivity"
+    android:layout_width="match_parent"
     android:background="@color/bg">
 
-
-    <Button
-        android:id="@+id/myAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="30dp"
-        android:text="Mój postęp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:textAllCaps="false"
-        android:textSize="15sp"
-        android:textColor="#658361"
-        android:background="@drawable/custom_button"/>
-
-    <GridLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="150dp"
-        android:layout_marginBottom="10dp"
-        android:columnCount="2"
-        android:rowCount="5"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/myAccount"
-        >
+        android:layout_height="wrap_content"
+        android:padding="40dp"
+        tools:context=".ChallengeStepsActivity">
+
 
         <Button
-            android:id="@+id/lesson1"
-            android:layout_height="80sp"
-            android:layout_columnWeight="1"
-            android:layout_margin="5sp"
-            android:text="@string/wyzwanie_1"
+            android:id="@+id/myAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="48dp"
+            android:background="@drawable/custom_button"
+            android:text="Mój postęp"
             android:textAllCaps="false"
-            android:textSize="15sp"
             android:textColor="#658361"
-            android:background="@drawable/custom_button"/>
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline9"
+            app:layout_constraintEnd_toStartOf="@+id/guideline21"
+            app:layout_constraintTop_toTopOf="@+id/guideline8" />
 
-        <Button
-            android:id="@+id/lesson2"
-            android:layout_height="80sp"
-            android:layout_columnWeight="1"
-            android:layout_margin="5sp"
-            android:text="@string/wyzwanie_2"
-            android:textAllCaps="false"
-            android:textSize="15sp"
-            android:textColor="#658361"
-            android:background="@drawable/custom_button"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.06" />
 
-        <Button
-            android:id="@+id/lesson3"
-            android:layout_height="80sp"
-            android:layout_columnWeight="1"
-            android:layout_margin="5sp"
-            android:text="@string/wyzwanie_3"
-            android:textAllCaps="false"
-            android:textSize="15sp"
-            android:textColor="#658361"
-            android:background="@drawable/custom_button"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3" />
 
-        <Button
-            android:id="@+id/lesson4"
-            android:layout_height="80sp"
-            android:layout_columnWeight="1"
-            android:layout_margin="5sp"
-            android:text="@string/wyzwanie_4"
-            android:textAllCaps="false"
-            android:textSize="15sp"
-            android:textColor="#658361"
-            android:background="@drawable/custom_button"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4" />
 
-        <Button
-            android:id="@+id/lesson5"
-            android:layout_height="80sp"
-            android:layout_columnWeight="1"
-            android:layout_margin="5sp"
-            android:text="@string/wyzwanie_5"
-            android:textAllCaps="false"
-            android:textSize="15sp"
-            android:textColor="#658361"
-            android:background="@drawable/custom_button"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
 
-        <Button
-            android:id="@+id/lesson6"
-            android:layout_height="80sp"
-            android:layout_columnWeight="1"
-            android:layout_margin="5sp"
-            android:text="@string/wyzwanie_6"
-            android:textAllCaps="false"
-            android:textSize="15sp"
-            android:textColor="#658361"
-            android:background="@drawable/custom_button"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.6" />
 
-        <Button
-            android:id="@+id/lesson7"
-            android:layout_height="80sp"
-            android:layout_columnWeight="1"
-            android:layout_margin="5sp"
-            android:text="@string/wyzwanie_7"
-            android:textAllCaps="false"
-            android:textSize="15sp"
-            android:textColor="#658361"
-            android:background="@drawable/custom_button"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.7" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.5" />
 
         <Button
             android:id="@+id/lesson8"
-            android:layout_height="80sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="5sp"
+            android:background="@drawable/custom_button"
             android:text="@string/wyzwanie_8"
             android:textAllCaps="false"
-            android:textSize="15sp"
             android:textColor="#658361"
-            android:background="@drawable/custom_button"/>
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline13"
+            app:layout_constraintEnd_toStartOf="@+id/guideline21"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline15"
+            app:layout_constraintTop_toTopOf="@+id/guideline12"
+            tools:targetApi="lollipop" />
 
         <Button
-            android:id="@+id/lesson9"
-            android:layout_height="80sp"
+            android:id="@+id/lesson6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="5sp"
-            android:text="@string/wyzwanie_9"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_6"
             android:textAllCaps="false"
-            android:textSize="15sp"
             android:textColor="#658361"
-            android:background="@drawable/custom_button"/>
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline12"
+            app:layout_constraintEnd_toStartOf="@+id/guideline21"
+            app:layout_constraintStart_toStartOf="@+id/guideline15"
+            app:layout_constraintTop_toTopOf="@+id/guideline11"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/lesson4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_4"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline11"
+            app:layout_constraintEnd_toStartOf="@+id/guideline21"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/guideline15"
+            app:layout_constraintTop_toTopOf="@+id/guideline10"
+            tools:targetApi="lollipop" />
 
         <Button
             android:id="@+id/lesson10"
-            android:layout_height="80sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_columnWeight="1"
             android:layout_margin="5sp"
+            android:background="@drawable/custom_button"
             android:text="@string/wyzwanie_10"
             android:textAllCaps="false"
-            android:textSize="15sp"
             android:textColor="#658361"
-            android:background="@drawable/custom_button"/>
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline14"
+            app:layout_constraintEnd_toStartOf="@+id/guideline21"
+            app:layout_constraintStart_toStartOf="@+id/guideline15"
+            app:layout_constraintTop_toTopOf="@+id/guideline13"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/lesson5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_5"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline12"
+            app:layout_constraintEnd_toStartOf="@+id/guideline15"
+            app:layout_constraintStart_toStartOf="@+id/guideline20"
+            app:layout_constraintTop_toTopOf="@+id/guideline11"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/lesson7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_7"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline13"
+            app:layout_constraintEnd_toStartOf="@+id/guideline15"
+            app:layout_constraintStart_toStartOf="@+id/guideline20"
+            app:layout_constraintTop_toTopOf="@+id/guideline12"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/lesson1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_1"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline10"
+            app:layout_constraintEnd_toStartOf="@+id/guideline15"
+            app:layout_constraintStart_toStartOf="@+id/guideline20"
+            app:layout_constraintTop_toTopOf="@+id/guideline9"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/lesson9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_9"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline14"
+            app:layout_constraintEnd_toStartOf="@+id/guideline15"
+            app:layout_constraintStart_toStartOf="@+id/guideline20"
+            app:layout_constraintTop_toTopOf="@+id/guideline13"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/lesson3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_3"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline11"
+            app:layout_constraintEnd_toStartOf="@+id/guideline15"
+            app:layout_constraintStart_toStartOf="@+id/guideline20"
+            app:layout_constraintTop_toTopOf="@+id/guideline10"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/lesson2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="5sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_2"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline10"
+            app:layout_constraintEnd_toStartOf="@+id/guideline21"
+            app:layout_constraintStart_toStartOf="@+id/guideline15"
+            app:layout_constraintTop_toTopOf="@+id/guideline9"
+            tools:targetApi="lollipop" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline21"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="1.0" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline22"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="1.0" />
 
 
-    </GridLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
