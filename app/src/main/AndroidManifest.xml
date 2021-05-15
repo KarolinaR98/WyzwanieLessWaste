@@ -3,7 +3,8 @@
     package="com.example.wyzwanielesswaste">
 
     <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".Channel"
@@ -13,44 +14,54 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WyzwanieLessWaste">
-        <activity android:name=".Manager"></activity>
-        <activity android:name=".SummaryOfTheWeek" />
-        <activity android:name=".MyAccount" />
-        <activity android:name=".ChallengeContent" />
-        <activity android:name=".ChallengeRules" />
-        <activity android:name=".ChallengeStepsActivity" />
-
-        <receiver android:name=".DailyAdviceBroadcast" android:enabled="true" android:exported="true">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-        </receiver>
-
-
-        <receiver android:name=".WeekChallengeBroadcast" android:enabled="true" android:exported="true">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-        </receiver>
-
-
-        <receiver android:name=".QuestionnaireBroadcast" android:enabled="true" android:exported="true">
-            <intent-filter>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
-            </intent-filter>
-        </receiver>
-
-
-        <activity android:name=".MainActivity">
+        <activity android:name=".Login"></activity>
+        <activity android:name=".Register">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".Manager" />
+        <activity android:name=".SummaryOfTheWeek" />
+        <activity android:name=".MyAccount" />
+        <activity android:name=".ChallengeContent" />
+        <activity android:name=".ChallengeRules" />
+        <activity android:name=".ChallengeStepsActivity" />
+
+        <receiver
+            android:name=".DailyAdviceBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".WeekChallengeBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+        <receiver
+            android:name=".QuestionnaireBroadcast"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+
     </application>
 
 </manifest>

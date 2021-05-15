@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "23872421767",
+    "project_id": "wyzwanie-less-waste-e3448",
+    "storage_bucket": "wyzwanie-less-waste-e3448.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:23872421767:android:306948fbfc8bdc64971d22",
+        "android_client_info": {
+          "package_name": "com.example.wyzwanielesswaste"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "23872421767-n47e4pn5br6l9sj8knn65hlvr93iqvji.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYm_XtRWvChowoYQ3qUmL2G9Hj04o5p9w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "23872421767-n47e4pn5br6l9sj8knn65hlvr93iqvji.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
