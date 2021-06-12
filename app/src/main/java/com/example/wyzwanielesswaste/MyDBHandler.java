@@ -18,7 +18,7 @@ import java.io.IOException;
 
 public class MyDBHandler extends SQLiteOpenHelper{
 
-    public static final int DB_VERSION = 6;
+    public static final int DB_VERSION = 8;
     private static final String DB_NAME = "DATABASE.db";
     private static final String DB_PATH = "/data/data/com.example.wyzwanielesswaste/databases/";
     SQLiteDatabase myDataBase;
@@ -112,7 +112,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
         String result = "";
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor c = db.rawQuery("SELECT * FROM Notifications WHERE id ='"+id+"'", null);
+        Cursor c = db.rawQuery("SELECT * FROM Notifications WHERE number ='"+id+"'", null);
 
         while (c.moveToNext()){
             String result_Title = c.getString(1);
@@ -134,7 +134,7 @@ public class MyDBHandler extends SQLiteOpenHelper{
         String result = "";
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor c = db.rawQuery("SELECT * FROM Notifications WHERE id ='"+id+"'", null);
+        Cursor c = db.rawQuery("SELECT * FROM Notifications WHERE number ='"+id+"'", null);
 
         while (c.moveToNext()){
             String result_Text = c.getString(2);
@@ -209,7 +209,8 @@ public class MyDBHandler extends SQLiteOpenHelper{
         return result;
     }
 
-    public String loadChallengeNotificationRow1(int id){
+
+    public String loadChallengeNotification(int id){
         try{
             createDatabase();
         }catch (IOException e){
@@ -218,194 +219,16 @@ public class MyDBHandler extends SQLiteOpenHelper{
         String result = "";
         SQLiteDatabase db = this.getReadableDatabase();
 
-        Cursor c = db.rawQuery("SELECT * FROM ChallengeForWeek WHERE id = '"+id+"'", null);
+        Cursor c = db.rawQuery("SELECT * FROM Levels WHERE id = '"+id+"'", null);
 
         while (c.moveToNext()){
-            String result_Text = c.getString(1);
+            String result_Text = c.getString(4);
             result += result_Text;
         }
         c.close();
         db.close();
 
         return result;
-    }
-
-    public String loadChallengeNotificationRow2(int id){
-        try{
-            createDatabase();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        String result = "";
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor c = db.rawQuery("SELECT * FROM ChallengeForWeek WHERE id = '"+id+"'", null);
-
-        while (c.moveToNext()){
-            String result_Text = c.getString(2);
-            result += result_Text;
-        }
-        c.close();
-        db.close();
-
-        return result;
-    }
-
-    public boolean updateScore(float score, int id){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("Score", score);
-        long result = db.update("Scores", contentValues, "id = ?", new String[] {String.valueOf(id)});
-        db.close();
-        return result > 0;
-    }
-
-
-
-    public float loadChallengeScore(int id){
-        try{
-            createDatabase();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        float result = 0 ;
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor c = db.rawQuery("SELECT * FROM Scores WHERE id = '"+id+"'", null);
-
-        while (c.moveToNext()){
-            float result_Float = c.getFloat(2);
-            result = result_Float;
-        }
-        c.close();
-        db.close();
-
-        return result;
-    }
-
-    public int loadIsActivated(int id){
-        try{
-            createDatabase();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        int result = 0 ;
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor c = db.rawQuery("SELECT * FROM Manager WHERE id = '"+id+"'", null);
-
-        while (c.moveToNext()){
-            int result_Int = c.getInt(1);
-            result = result_Int;
-        }
-        c.close();
-        db.close();
-
-        return result;
-    }
-
-
-    public int loadChallengeWeek(){
-        try{
-            createDatabase();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        int result = 0 ;
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor c = db.rawQuery("SELECT * FROM Manager WHERE id = 1" , null);
-
-        while (c.moveToNext()){
-            int result_Int = c.getInt(2);
-            result = result_Int;
-        }
-        c.close();
-        db.close();
-
-        return result;
-    }
-
-
-
-
-    public boolean updateChallengeWeek(int challengeWeek){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("challengeWeek", challengeWeek);
-        long result = db.update("Manager", contentValues, "id = ?", new String[] {String.valueOf(1)});
-        db.close();
-        return result > 0;
-    }
-
-
-    public boolean updateActivation(int value, int id){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("isActivated", value);
-        long result = db.update("Manager", contentValues, "id = ?", new String[] {String.valueOf(id)});
-        db.close();
-        return result > 0;
-    }
-
-    public int loadButtonActivation(int id){
-        try{
-            createDatabase();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        int result = 0 ;
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor c = db.rawQuery("SELECT * FROM Manager WHERE id = '"+id+"'", null);
-
-        while (c.moveToNext()){
-            int result_Int = c.getInt(3);
-            result = result_Int;
-        }
-        c.close();
-        db.close();
-
-        return result;
-    }
-
-    public boolean updateButtonActivation(int value, int id){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("isButtonActive", value);
-        long result = db.update("Manager", contentValues, "id = ?", new String[] {String.valueOf(id)});
-        db.close();
-        return result > 0;
-    }
-
-    public int loadQuestionnaireActivation(int id){
-        try{
-            createDatabase();
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        int result = 0 ;
-        SQLiteDatabase db = this.getReadableDatabase();
-
-        Cursor c = db.rawQuery("SELECT * FROM Manager WHERE id = '"+id+"'", null);
-
-        while (c.moveToNext()){
-            int result_Int = c.getInt(4);
-            result = result_Int;
-        }
-        c.close();
-        db.close();
-
-        return result;
-    }
-
-    public boolean updateQuestionnaireActivation(int value, int id){
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("isQuestionnarieActive", value);
-        long result = db.update("Manager", contentValues, "id = ?", new String[] {String.valueOf(id)});
-        db.close();
-        return result > 0;
     }
 
 

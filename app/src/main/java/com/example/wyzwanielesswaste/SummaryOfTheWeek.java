@@ -33,7 +33,7 @@ public class SummaryOfTheWeek extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_of_the_week);
 
-        MyDBHandler myDBHandler = new MyDBHandler(SummaryOfTheWeek.this, null, null, 6);
+        MyDBHandler myDBHandler = new MyDBHandler(SummaryOfTheWeek.this, null, null, MyDBHandler.DB_VERSION);
         MainActivity mainActivity = new MainActivity();
 
         checkBox1 = (CheckBox)findViewById(R.id.checkBox1);
@@ -91,7 +91,7 @@ public class SummaryOfTheWeek extends AppCompatActivity {
 
 
 
-        confirmationButton.setOnClickListener(new View.OnClickListener() {
+       /* confirmationButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -165,7 +165,7 @@ public class SummaryOfTheWeek extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
 
     }
@@ -365,17 +365,7 @@ public class SummaryOfTheWeek extends AppCompatActivity {
         toast.show();
     }
 
-    public void CheckIfCurrentWeek(int weekID){
 
-        MyDBHandler myDBHandler = new MyDBHandler(this, null, null ,6);
-
-        int currentWeek = myDBHandler.loadChallengeWeek();
-
-        if(weekID == currentWeek){
-            myDBHandler.updateChallengeWeek(0);
-            toastMsg();
-        }
-    }
 }
 
 

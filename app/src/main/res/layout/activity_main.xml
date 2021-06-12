@@ -11,122 +11,127 @@
         android:id="@+id/imageView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="8dp"
         android:contentDescription="TODO"
         android:src="@drawable/logo"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/guideline6"
-        app:layout_constraintStart_toStartOf="@+id/guideline5"
-        app:layout_constraintTop_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/guidelin_e"
+        app:layout_constraintStart_toStartOf="@+id/guideline___"
+        app:layout_constraintTop_toTopOf="@+id/guideline__"
         tools:visibility="visible" />
 
     <Button
-        android:id="@+id/zasadyWyzwania"
+        android:id="@+id/mojeKonto"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/custom_button"
-        android:text="@string/zasady_wyzwania"
+        android:text="Moje konto"
         android:textAllCaps="false"
         android:textColor="#658361"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline18"
-        app:layout_constraintEnd_toStartOf="@+id/guideline25"
-        app:layout_constraintStart_toStartOf="@+id/guideline24"
-        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline_"
+        app:layout_constraintEnd_toStartOf="@+id/guidelin_e"
+        app:layout_constraintStart_toStartOf="@+id/guideline___"
+        app:layout_constraintTop_toTopOf="@+id/guideline__"
+        app:layout_constraintVertical_bias="0.45" />
 
     <Button
         android:id="@+id/rozpocznijWyzwanie"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:background="@drawable/custom_button"
-        android:text="@string/rozpocznij_wyzwanie"
+        android:text="Podejmij wyzwanie"
         android:textAllCaps="false"
         android:textColor="#658361"
         android:textSize="14sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
-        app:layout_constraintEnd_toStartOf="@+id/guideline25"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline24"
-        app:layout_constraintTop_toTopOf="@+id/guideline23"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline_"
+        app:layout_constraintEnd_toStartOf="@+id/guidelin_e"
+        app:layout_constraintStart_toStartOf="@+id/guideline___"
+        app:layout_constraintTop_toTopOf="@+id/guideline__"
+        app:layout_constraintVertical_bias="0.55" />
+
+    <Button
+        android:id="@+id/dokonajPodsumowania"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_button"
+        android:text="Dokonaj podsumowania"
+        android:textAllCaps="false"
+        android:textColor="#658361"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_"
+        app:layout_constraintEnd_toStartOf="@+id/guidelin_e"
+        app:layout_constraintStart_toStartOf="@+id/guideline___"
+        app:layout_constraintTop_toTopOf="@+id/guideline__"
+        app:layout_constraintVertical_bias="0.65" />
+
+    <Button
+        android:id="@+id/ekoMiasto"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/custom_button"
+        android:text="Eko miasto"
+        android:textAllCaps="false"
+        android:textColor="#658361"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_"
+        app:layout_constraintEnd_toStartOf="@+id/guidelin_e"
+        app:layout_constraintStart_toStartOf="@+id/guideline___"
+        app:layout_constraintTop_toTopOf="@+id/guideline__"
+        app:layout_constraintVertical_bias="0.75" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.58" />
+        app:layout_constraintGuide_percent="0.37" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.65" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
+        android:id="@+id/guideline_"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="1.0" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
+        android:id="@+id/guideline__"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.1" />
+        app:layout_constraintGuide_percent="0.0" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline5"
+        android:id="@+id/guideline___"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.15" />
+        app:layout_constraintGuide_percent="0.25" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline6"
+        android:id="@+id/guidelin_e"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.85" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.88" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.75" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline23"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.78" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline24"
+        android:id="@+id/guide_line"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.25"
-       />
+        app:layout_constraintGuide_percent="0" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline25"
+        android:id="@+id/_guideline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-       app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

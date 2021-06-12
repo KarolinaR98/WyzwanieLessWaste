@@ -6,25 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.TextView;
 
-public class MyAccount extends AppCompatActivity {
-
+public class SummarySteps extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_account);
+        setContentView(R.layout.activity_summary_steps);
 
-        Button userData = (Button) findViewById(R.id.daneKonta);
+        Button challenge1 = (Button) findViewById(R.id.lesson1_);
 
-        userData.setOnClickListener(new View.OnClickListener() {
+        challenge1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), UserData.class));
+                startActivity(new Intent(getApplicationContext(), WeekTemplate.class));
             }
         });
-
     }
 }

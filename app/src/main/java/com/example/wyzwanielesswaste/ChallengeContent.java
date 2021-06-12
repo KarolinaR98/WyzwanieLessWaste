@@ -37,35 +37,12 @@ public class ChallengeContent extends AppCompatActivity  {
         TextView titleText = (TextView)findViewById(R.id.ChallengeTitle);
         TextView contentText = (TextView)findViewById(R.id.ChallengeContent);
         TextView challengeText = (TextView)findViewById(R.id.Challege);
-        Button quizButton = (Button)findViewById(R.id.quizButton);
 
-        MyDBHandler myDBHandler = new MyDBHandler( ChallengeContent.this, null, null,6);
+
+        MyDBHandler myDBHandler = new MyDBHandler( ChallengeContent.this, null, null,MyDBHandler.DB_VERSION);
         ChallengeStepsActivity challengeStepsActivity = new ChallengeStepsActivity();
-        SummaryOfTheWeek summaryOfTheWeek = new SummaryOfTheWeek();
 
         id = challengeStepsActivity.GetId();
-        int activation = myDBHandler.loadQuestionnaireActivation(id);
-
-        if(activation == 0){
-            quizButton.setEnabled(false);
-        }
-        else {
-            quizButton.setEnabled(true);
-        }
-
-
-        quizButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                int id = challengeStepsActivity.GetId();
-                summaryOfTheWeek.SetContextForQuestions(id);
-                startActivity(new Intent(ChallengeContent.this, SummaryOfTheWeek.class));
-
-
-            }
-        });
-
 
 
         titleText.setText(myDBHandler.loadChallengeTitle(id));

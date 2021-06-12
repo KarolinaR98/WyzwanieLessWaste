@@ -4,9 +4,10 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:usesCleartextTraffic="true"
         android:name=".Channel"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -14,7 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WyzwanieLessWaste">
-        <activity android:name=".Login"></activity>
+        <activity android:name=".EcoCity"></activity>
+        <activity android:name=".WeekTemplate" />
+        <activity android:name=".SummarySteps" />
+        <activity android:name=".UserData" />
+        <activity android:name=".Login" />
         <activity android:name=".Register">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".Manager" />
         <activity android:name=".SummaryOfTheWeek" />
         <activity android:name=".MyAccount" />
@@ -36,7 +41,6 @@
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
@@ -46,7 +50,6 @@
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
@@ -56,12 +59,9 @@
             android:exported="true">
             <intent-filter>
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-
-
     </application>
 
 </manifest>

@@ -15,30 +15,30 @@ import static com.example.wyzwanielesswaste.Channel.CHANNEL_1_ID;
 public class DailyAdviceBroadcast extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
+            MyDBHandler myDBHandler = new MyDBHandler(context, null,null, MyDBHandler.DB_VERSION);
 
-        MyDBHandler myDBHandler = new MyDBHandler(context, null,null,6);
-
-        int id;
-        id = (int)Math.floor((Math.random() * 93) + 1);
-
-
-        Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
-
-        NotificationCompat.Builder notification = new NotificationCompat.Builder(context, CHANNEL_1_ID )
-                .setSmallIcon(R.drawable.ic_stat_name)
-                .setContentTitle( myDBHandler.loadHandlerTitle(id))
-                .setContentText(myDBHandler.loadHandlerText(id))
-                .setStyle(new NotificationCompat.BigTextStyle())
-                .setPriority(Notification.PRIORITY_MAX)
-                .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
-                .setAutoCancel(false)
-                .setVibrate(new long[]{1000});
+            int id;
+            id = (int)Math.floor((Math.random() * 93) + 1);
 
 
+            Vibrator v = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
 
-        v.vibrate(500);
-        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
+            NotificationCompat.Builder notification = new NotificationCompat.Builder(context, CHANNEL_1_ID )
+                    .setSmallIcon(R.drawable.ic_stat_name)
+                    .setContentTitle( myDBHandler.loadHandlerTitle(id))
+                    .setContentText(myDBHandler.loadHandlerText(id))
+                    .setStyle(new NotificationCompat.BigTextStyle())
+                    .setPriority(Notification.PRIORITY_MAX)
+                    .setSound(Settings.System.DEFAULT_NOTIFICATION_URI)
+                    .setAutoCancel(false)
+                    .setVibrate(new long[]{1000});
 
-        notificationManager.notify(1, notification.build());
+
+
+            v.vibrate(500);
+            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(context);
+
+            notificationManager.notify(1, notification.build());
+        }
+
     }
-}
