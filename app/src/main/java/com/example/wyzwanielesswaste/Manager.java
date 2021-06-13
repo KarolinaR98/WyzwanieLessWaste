@@ -43,7 +43,6 @@ public class Manager extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manager);
 
-        MyDBHandler myDBHandler = new MyDBHandler(this, null, null, MyDBHandler.DB_VERSION);
         ChallengeStepsActivity challengeStepsActivity = new ChallengeStepsActivity();
 
 

@@ -125,8 +125,11 @@ public class Register extends AppCompatActivity {
                                     dbRef = rootNode.getReference(userID.toString());
 
                                     CurrentChallengeHelper helperCurrent = new CurrentChallengeHelper(0,0);
-                                    ChallengeHelper helperChallenge1 = new ChallengeHelper(0,0,0,0,0,0,0,false, false, true);
-                                    ChallengeHelper helperChallenge = new ChallengeHelper(0,0,0,0,0,0,0,false, false, false);
+                                    ChallengeHelper helperChallenge1 = new ChallengeHelper(0,0,0,0,0,0,0, false, false, false, false, false, false, false,
+                                            false, true, false, false,
+                                            false, false, false, false, false);
+                                    ChallengeHelper helperChallenge = new ChallengeHelper(0,0,0,0,0,0,0, false, false, false, false, false, false,
+                                            false, false, false, false, false, false, false, false, false, false);
                                     dbRef.child("CurrentChallenge").setValue(helperCurrent);
                                     dbRef.child("Challenge1").setValue(helperChallenge1);
                                     dbRef.child("Challenge2").setValue(helperChallenge);

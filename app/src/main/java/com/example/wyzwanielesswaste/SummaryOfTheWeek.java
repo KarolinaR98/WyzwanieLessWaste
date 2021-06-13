@@ -19,7 +19,7 @@ public class SummaryOfTheWeek extends AppCompatActivity {
     public static String question1, question2, question3, question4, question5, question6, question7;
 
 
-    public static int scoreID;
+    public static int scoreID, ID;
 
 
     public static CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7;
@@ -33,8 +33,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_of_the_week);
 
-        MyDBHandler myDBHandler = new MyDBHandler(SummaryOfTheWeek.this, null, null, MyDBHandler.DB_VERSION);
-        MainActivity mainActivity = new MainActivity();
 
         checkBox1 = (CheckBox)findViewById(R.id.checkBox1);
         checkBox2 = (CheckBox)findViewById(R.id.checkBox2);
@@ -44,9 +42,9 @@ public class SummaryOfTheWeek extends AppCompatActivity {
         checkBox6 = (CheckBox)findViewById(R.id.checkBox6);
         checkBox7 = (CheckBox)findViewById(R.id.checkBox7);
 
-        ChallengeStepsActivity challengeStepsActivity = new ChallengeStepsActivity();
+        SummarySteps summarySteps = new SummarySteps();
 
-        int id = challengeStepsActivity.GetId();
+        int id = ID;
 
         if(id == 1 || id == 4 || id == 5 || id == 8){
             checkBox5.setVisibility(View.VISIBLE);
@@ -61,12 +59,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
             checkBox6.setVisibility(View.VISIBLE);
             checkBox7.setVisibility(View.VISIBLE);
         }
-
-
-
-
-
-
 
         Button confirmationButton = (Button)findViewById(R.id.ConfirmationButton);
 
@@ -363,6 +355,10 @@ public class SummaryOfTheWeek extends AppCompatActivity {
     public void toastMsg() {
         Toast toast = Toast.makeText(this, "Gratulację ! Odblokowałeś nowe wyzwanie !", Toast.LENGTH_LONG);
         toast.show();
+    }
+
+    public void SetID (int id) {
+        id = ID;
     }
 
 

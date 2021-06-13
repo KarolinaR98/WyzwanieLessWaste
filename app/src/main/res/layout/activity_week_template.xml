@@ -218,7 +218,6 @@
             android:text="Dokonaj podsumowania"
             android:textColor="#658361"
             android:textStyle="bold"
-            android:visibility="visible"
             app:layout_constraintEnd_toStartOf="@+id/guideline24"
             app:layout_constraintStart_toStartOf="@+id/guideline23"
             app:layout_constraintTop_toBottomOf="@+id/day" />
@@ -287,7 +286,7 @@
             app:layout_constraintTop_toBottomOf="@+id/day6" />
 
         <TextView
-            android:id="@+id/openSummary9"
+            android:id="@+id/openSummary7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
