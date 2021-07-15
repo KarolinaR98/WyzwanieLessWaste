@@ -124,12 +124,12 @@ public class Register extends AppCompatActivity {
                                     rootNode = FirebaseDatabase.getInstance();
                                     dbRef = rootNode.getReference(userID.toString());
 
-                                    CurrentChallengeHelper helperCurrent = new CurrentChallengeHelper(0,0);
+                                    CurrentChallengeHelper helperCurrent = new CurrentChallengeHelper(0);
                                     ChallengeHelper helperChallenge1 = new ChallengeHelper(0,0,0,0,0,0,0, false, false, false, false, false, false, false,
-                                            false, true, false, false,
+                                            0, true, false, false,
                                             false, false, false, false, false);
                                     ChallengeHelper helperChallenge = new ChallengeHelper(0,0,0,0,0,0,0, false, false, false, false, false, false,
-                                            false, false, false, false, false, false, false, false, false, false);
+                                            false, 0, false, false, false, false, false, false, false, false);
                                     dbRef.child("CurrentChallenge").setValue(helperCurrent);
                                     dbRef.child("Challenge1").setValue(helperChallenge1);
                                     dbRef.child("Challenge2").setValue(helperChallenge);

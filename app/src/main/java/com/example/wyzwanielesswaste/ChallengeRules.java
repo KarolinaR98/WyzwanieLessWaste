@@ -18,6 +18,6 @@ public class ChallengeRules extends AppCompatActivity {
 
 
         titleTV.setText("Zasady wyzwania");
-        contentsTV.setText("Aplikacja Wyzwanie Less Waste pomaga w prosty sposób wypracować nawyki zgodne z ekologiczną myślą.  Podejmij dziesięciotygodniowe wyzwanie ! – każdy tydzień to szansa na zapoznanie się z danym problemem (np. marnowanie wody, segregowanie śmieci) oraz podjęcie wobec niego konkretnych działań. Każdego dnia otrzymasz powiadomienie z ekoporadą oraz zadaniami na dany tydzień. Na koniec tygodnia dokonasz podsumowania zrealizowanych zadań i otrzymasz nowe na kolejny. Jeżeli od razu nie uda Ci się zrealizować któregoś z zadań – nie przejmuj się ! W każdym momencie możesz wrócić do podsumowania i obserwować swój rzeczywisty postęp.");
+        contentsTV.setText("Aplikacja Wyzwanie Less Waste pomaga w prosty sposób wypracować nawyki zgodne z ekologiczną myślą. Podejmij dziesięciotygodniowe wyzwanie ! – każdy tydzień to szansa na zapoznanie się z danym problemem (np. marnowanie wody, segregowanie śmieci) oraz podjęcie wobec niego konkretnych działań. Każdego dnia otrzymasz powiadomienie z ekoporadą oraz zadaniami odpowiednimi dla danego wyzwania. Dokumentuj swój postęp wypełniając codzienne podsumowanie wyzwania. Kontroluj swój postęp w zakładce Moje konto > Statystyki.");
     }
 }

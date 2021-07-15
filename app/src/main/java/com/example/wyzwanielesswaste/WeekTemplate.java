@@ -22,6 +22,11 @@ import static android.content.ContentValues.TAG;
 
 public class WeekTemplate extends AppCompatActivity {
 
+    public static boolean active1, active2, active3, active4, active5, active6, active7;
+    public static boolean summaryPerformed1, summaryPerformed2, summaryPerformed3, summaryPerformed4, summaryPerformed5, summaryPerformed6, summaryPerformed7;
+
+    public static int id_, DayID;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +34,7 @@ public class WeekTemplate extends AppCompatActivity {
         setContentView(R.layout.activity_week_template);
 
         SummarySteps summarySteps = new SummarySteps();
-        int id = summarySteps.GetID();
+        id_ = summarySteps.GetID();
 
         ImageView check = (ImageView) findViewById(R.id.check);
         ImageView check2 = (ImageView) findViewById(R.id.check2);
@@ -48,29 +53,30 @@ public class WeekTemplate extends AppCompatActivity {
         TextView summaryDay7 = (TextView) findViewById(R.id.openSummary7);
 
 
-
-
         String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child(userID).child("Challenge" + String.valueOf(id));
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child(userID).child("Challenge" + String.valueOf(id_));
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                boolean active1 = dataSnapshot.child("active1").getValue(Boolean.class);
-                boolean active2 = dataSnapshot.child("active2").getValue(Boolean.class);
-                boolean active3 = dataSnapshot.child("active3").getValue(Boolean.class);
-                boolean active4 = dataSnapshot.child("active4").getValue(Boolean.class);
-                boolean active5 = dataSnapshot.child("active5").getValue(Boolean.class);
-                boolean active6 = dataSnapshot.child("active6").getValue(Boolean.class);
-                boolean active7 = dataSnapshot.child("active7").getValue(Boolean.class);
+                SummaryOfTheWeek summaryOfTheWeek = new SummaryOfTheWeek();
 
-                boolean summaryPerformed1 = dataSnapshot.child("summaryPerformed1").getValue(Boolean.class);
-                boolean summaryPerformed2 = dataSnapshot.child("summaryPerformed2").getValue(Boolean.class);
-                boolean summaryPerformed3 = dataSnapshot.child("summaryPerformed3").getValue(Boolean.class);
-                boolean summaryPerformed4 = dataSnapshot.child("summaryPerformed4").getValue(Boolean.class);
-                boolean summaryPerformed5 = dataSnapshot.child("summaryPerformed5").getValue(Boolean.class);
-                boolean summaryPerformed6 = dataSnapshot.child("summaryPerformed6").getValue(Boolean.class);
-                boolean summaryPerformed7 = dataSnapshot.child("summaryPerformed7").getValue(Boolean.class);
+
+                active1 = dataSnapshot.child("active1").getValue(Boolean.class);
+                active2 = dataSnapshot.child("active2").getValue(Boolean.class);
+                active3 = dataSnapshot.child("active3").getValue(Boolean.class);
+                active4 = dataSnapshot.child("active4").getValue(Boolean.class);
+                active5 = dataSnapshot.child("active5").getValue(Boolean.class);
+                active6 = dataSnapshot.child("active6").getValue(Boolean.class);
+                active7 = dataSnapshot.child("active7").getValue(Boolean.class);
+
+                summaryPerformed1 = dataSnapshot.child("summaryPerformed1").getValue(Boolean.class);
+                summaryPerformed2 = dataSnapshot.child("summaryPerformed2").getValue(Boolean.class);
+                summaryPerformed3 = dataSnapshot.child("summaryPerformed3").getValue(Boolean.class);
+                summaryPerformed4 = dataSnapshot.child("summaryPerformed4").getValue(Boolean.class);
+                summaryPerformed5 = dataSnapshot.child("summaryPerformed5").getValue(Boolean.class);
+                summaryPerformed6 = dataSnapshot.child("summaryPerformed6").getValue(Boolean.class);
+                summaryPerformed7 = dataSnapshot.child("summaryPerformed7").getValue(Boolean.class);
 
                 if (summaryPerformed1 == true) {
                     check.setVisibility(View.VISIBLE);
@@ -112,7 +118,7 @@ public class WeekTemplate extends AppCompatActivity {
                     summaryDay5.setClickable(false);
                 } else {
                     check5.setVisibility(View.INVISIBLE);
-                                    }
+                }
 
                 if (summaryPerformed6 == true) {
                     check6.setVisibility(View.VISIBLE);
@@ -120,7 +126,7 @@ public class WeekTemplate extends AppCompatActivity {
                     summaryDay6.setClickable(false);
                 } else {
                     check6.setVisibility(View.INVISIBLE);
-                                    }
+                }
 
                 if (summaryPerformed7 == true) {
                     check7.setVisibility(View.VISIBLE);
@@ -128,7 +134,7 @@ public class WeekTemplate extends AppCompatActivity {
                     summaryDay7.setClickable(false);
                 } else {
                     check7.setVisibility(View.INVISIBLE);
-                                    }
+                }
 
                 if (active1 == true && summaryPerformed1 == false) {
                     summaryDay1.setText("Dokonaj podsumowania");
@@ -184,6 +190,112 @@ public class WeekTemplate extends AppCompatActivity {
                 }
 
 
+                if (summaryPerformed1 == false && active1 == true) {
+
+                    summaryDay1.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            summaryOfTheWeek.SetContextForQuestions(id_);
+                            summaryOfTheWeek.SetID(id_);
+                            DayID = 1;
+                            startActivity(new Intent(WeekTemplate.this, SummaryOfTheWeek.class));
+                        }
+                    });
+
+
+                }
+
+
+                if (summaryPerformed2 == false && active2 == true) {
+
+                    summaryDay2.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            summaryOfTheWeek.SetContextForQuestions(id_);
+                            DayID =2;
+                            startActivity(new Intent(WeekTemplate.this, SummaryOfTheWeek.class));
+                        }
+                    });
+
+
+                }
+
+
+                if (summaryPerformed3 == false && active3 == true) {
+
+                    summaryDay3.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            summaryOfTheWeek.SetContextForQuestions(id_);
+                            summaryOfTheWeek.SetID(id_);
+                            DayID = 3;
+                            startActivity(new Intent(WeekTemplate.this, SummaryOfTheWeek.class));
+                        }
+                    });
+
+
+                }
+
+                if (summaryPerformed4 == false && active4 == true) {
+
+                    summaryDay4.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            summaryOfTheWeek.SetContextForQuestions(id_);
+                            summaryOfTheWeek.SetID(id_);
+                            DayID = 4;
+                            startActivity(new Intent(WeekTemplate.this, SummaryOfTheWeek.class));
+                        }
+                    });
+
+
+                }
+
+                if (summaryPerformed5 == false && active5 == true) {
+
+                    summaryDay5.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            summaryOfTheWeek.SetContextForQuestions(id_);
+                            summaryOfTheWeek.SetID(id_);
+                            DayID = 5;
+                            startActivity(new Intent(WeekTemplate.this, SummaryOfTheWeek.class));
+                        }
+                    });
+
+
+                }
+
+
+                if (summaryPerformed6 == false && active6 == true) {
+
+                    summaryDay6.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            summaryOfTheWeek.SetContextForQuestions(id_);
+                            summaryOfTheWeek.SetID(id_);
+                            DayID = 6;
+                            startActivity(new Intent(WeekTemplate.this, SummaryOfTheWeek.class));
+                        }
+                    });
+
+
+                }
+
+                if (summaryPerformed7 == false && active7 == true) {
+
+                    summaryDay7.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            summaryOfTheWeek.SetContextForQuestions(id_);
+                            summaryOfTheWeek.SetID(id_);
+                            DayID = 7;
+                            startActivity(new Intent(WeekTemplate.this, SummaryOfTheWeek.class));
+                        }
+                    });
+
+
+                }
 
 
             }
@@ -195,8 +307,15 @@ public class WeekTemplate extends AppCompatActivity {
         });
 
 
+        }
 
 
+        public int GetID(){
+        return id_;
+        }
 
-    }
+        public int GetDayID(){
+        return DayID;
+        }
+
 }

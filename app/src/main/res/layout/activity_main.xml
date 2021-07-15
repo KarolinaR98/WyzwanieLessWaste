@@ -70,12 +70,12 @@
         app:layout_constraintVertical_bias="0.65" />
 
     <Button
-        android:id="@+id/ekoMiasto"
+        android:id="@+id/ekoLifestyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/custom_button"
-        android:text="Eko miasto"
+        android:text="Eko lifestyle"
         android:textAllCaps="false"
         android:textColor="#658361"
         android:textSize="14sp"

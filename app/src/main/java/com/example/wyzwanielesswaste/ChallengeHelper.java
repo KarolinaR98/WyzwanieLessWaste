@@ -4,9 +4,9 @@ import android.app.ListActivity;
 
 public class ChallengeHelper {
     int score1, score2, score3, score4, score5, score6, score7;
-    boolean isActive1, isActive2, isActive3, isActive4, isActive5, isActive6, isActive7, isActive8, isActive9, isActive10, wasPerformed, isAvailable,
-            summaryPerformed1, summaryPerformed2, summaryPerformed3, summaryPerformed4, summaryPerformed5, summaryPerformed6, summaryPerformed7,
-            summaryPerformed8, summaryPerformed9, summaryPerformed10;
+    boolean isActive1, isActive2, isActive3, isActive4, isActive5, isActive6, isActive7, isAvailable,
+            summaryPerformed1, summaryPerformed2, summaryPerformed3, summaryPerformed4, summaryPerformed5, summaryPerformed6, summaryPerformed7;
+    long wasPerformed;
 
 
 
@@ -15,7 +15,7 @@ public class ChallengeHelper {
 
     public ChallengeHelper(int score1, int score2, int score3, int score4, int score5, int score6, int score7, boolean isActive1,
                            boolean isActive2,  boolean isActive3,  boolean isActive4,  boolean isActive5,  boolean isActive6,  boolean isActive7,
-                           boolean wasPerformed, boolean isAvailable,
+                           long wasPerformed, boolean isAvailable,
                            boolean summaryPerformed1, boolean summaryPerformed2, boolean summaryPerformed3, boolean summaryPerformed4,
                            boolean summaryPerformed5, boolean summaryPerformed6, boolean summaryPerformed7) {
         this.score1 = score1;
@@ -212,7 +212,7 @@ public class ChallengeHelper {
         this.score7 = score7;
     }
 
-    public boolean isWasPerformed() {
+    public long isWasPerformed() {
         return wasPerformed;
     }
 
@@ -224,7 +224,7 @@ public class ChallengeHelper {
         isAvailable = available;
     }
 
-    public void setWasPerformed(boolean wasPerformed) {
+    public void setWasPerformed(long wasPerformed) {
         this.wasPerformed = wasPerformed;
     }
 }

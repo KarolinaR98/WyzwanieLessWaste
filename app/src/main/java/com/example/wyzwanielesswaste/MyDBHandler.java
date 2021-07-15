@@ -1,14 +1,11 @@
 package com.example.wyzwanielesswaste;
 
 import android.content.ContentValues;
-import android.database.sqlite.SQLiteAbortException;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-
-import androidx.annotation.Nullable;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -18,7 +15,7 @@ import java.io.IOException;
 
 public class MyDBHandler extends SQLiteOpenHelper{
 
-    public static final int DB_VERSION = 8;
+    public static final int DB_VERSION = 11;
     private static final String DB_NAME = "DATABASE.db";
     private static final String DB_PATH = "/data/data/com.example.wyzwanielesswaste/databases/";
     SQLiteDatabase myDataBase;
@@ -230,7 +227,5 @@ public class MyDBHandler extends SQLiteOpenHelper{
 
         return result;
     }
-
-
 
 }

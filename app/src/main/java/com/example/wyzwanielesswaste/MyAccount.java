@@ -18,11 +18,19 @@ public class MyAccount extends AppCompatActivity {
         setContentView(R.layout.activity_my_account);
 
         Button userData = (Button) findViewById(R.id.daneKonta);
+        Button statistic = (Button) findViewById(R.id.statystyki);
 
         userData.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), UserData.class));
+            }
+        });
+
+        statistic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), StatisticSteps.class));
             }
         });
 

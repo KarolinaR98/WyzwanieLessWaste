@@ -1,25 +1,48 @@
 package com.example.wyzwanielesswaste;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
+import android.app.AlarmManager;
+import android.app.Notification;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Vibrator;
+import android.provider.Settings;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
+import com.google.firebase.database.ValueEventListener;
+import com.squareup.okhttp.Challenge;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.content.ContentValues.TAG;
+import static com.example.wyzwanielesswaste.Channel.CHANNEL_1_ID;
 
 public class SummaryOfTheWeek extends AppCompatActivity {
 
     public static String question1, question2, question3, question4, question5, question6, question7;
 
 
-    public static int scoreID, ID;
+    public static int id, DayID;
 
 
     public static CheckBox checkBox1, checkBox2, checkBox3, checkBox4, checkBox5, checkBox6, checkBox7;
@@ -33,6 +56,10 @@ public class SummaryOfTheWeek extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_summary_of_the_week);
 
+        WeekTemplate weekTemplate = new WeekTemplate();
+
+        id = weekTemplate.GetID();
+        DayID = weekTemplate.GetDayID();
 
         checkBox1 = (CheckBox)findViewById(R.id.checkBox1);
         checkBox2 = (CheckBox)findViewById(R.id.checkBox2);
@@ -42,9 +69,8 @@ public class SummaryOfTheWeek extends AppCompatActivity {
         checkBox6 = (CheckBox)findViewById(R.id.checkBox6);
         checkBox7 = (CheckBox)findViewById(R.id.checkBox7);
 
-        SummarySteps summarySteps = new SummarySteps();
 
-        int id = ID;
+
 
         if(id == 1 || id == 4 || id == 5 || id == 8){
             checkBox5.setVisibility(View.VISIBLE);
@@ -83,63 +109,14 @@ public class SummaryOfTheWeek extends AppCompatActivity {
 
 
 
-       /* confirmationButton.setOnClickListener(new View.OnClickListener() {
+       confirmationButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
-                if (id == 1){
-                    myDBHandler.updateButtonActivation(1,id + 1);
-                    CheckIfCurrentWeek(1);
-
-
-                }
-                else if (id == 2){
-                    myDBHandler.updateButtonActivation(1,id + 1);
-                    CheckIfCurrentWeek(2);
-
-
-                }
-                else if (id == 3){
-                    myDBHandler.updateButtonActivation(1,id + 1);
-                    CheckIfCurrentWeek(3);
-
-                }
-                else if (id == 4){
-                    myDBHandler.updateButtonActivation(1,id + 1);
-                    CheckIfCurrentWeek(4);
-
-                }
-                else if (id == 5){
-                    myDBHandler.updateButtonActivation(1,id + 1);
-                    CheckIfCurrentWeek(5);
-
-                }
-                else if (id == 6){
-                    myDBHandler.updateButtonActivation(1,id + 1);
-                    CheckIfCurrentWeek(6);
-
-                }
-                else if (id == 7){
-                    myDBHandler.updateButtonActivation(1,id + 1);
-                    CheckIfCurrentWeek(7);
-
-                }
-                else if (id == 8){
-                    myDBHandler.updateButtonActivation(1,id + 1);
-                    CheckIfCurrentWeek(8);
-
-                }
-                else if (id == 9){
-                    myDBHandler.updateButtonActivation(1,id + 1);
-                    CheckIfCurrentWeek(9);
-
-                }
-                else if (id == 10){
-                    myDBHandler.updateChallengeWeek(0);
-
-                }
-
+                String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child(userID);
+                MyDBHandler myDBHandler = new MyDBHandler(SummaryOfTheWeek.this, null, null, MyDBHandler.DB_VERSION);
 
 
                 float activeCheckMarks;
@@ -149,15 +126,53 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 checkedCheckMarks = (float)ReturnNumOfCheckedQuestions();
                 result = (checkedCheckMarks/activeCheckMarks) * 100;
 
+                myRef.child("Challenge" + String.valueOf(id)).child("score" + String.valueOf(DayID)).setValue(ServerValue.increment(result));
+                myRef.child("Challenge" + String.valueOf(id)).child("summaryPerformed" + String.valueOf(DayID)).setValue(true);
 
-                myDBHandler.updateScore(result,scoreID);
-                startActivity(new Intent(SummaryOfTheWeek.this, MyAccount.class));
+                myRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
 
+                        boolean wasPerformed1 = snapshot.child("Challenge" + String.valueOf(id)).child("summaryPerformed1").getValue(Boolean.class);
+                        boolean wasPerformed2 = snapshot.child("Challenge" + String.valueOf(id)).child("summaryPerformed2").getValue(Boolean.class);
+                        boolean wasPerformed3 = snapshot.child("Challenge" + String.valueOf(id)).child("summaryPerformed3").getValue(Boolean.class);
+                        boolean wasPerformed4 = snapshot.child("Challenge" + String.valueOf(id)).child("summaryPerformed4").getValue(Boolean.class);
+                        boolean wasPerformed5 = snapshot.child("Challenge" + String.valueOf(id)).child("summaryPerformed5").getValue(Boolean.class);
+                        boolean wasPerformed6 = snapshot.child("Challenge" + String.valueOf(id)).child("summaryPerformed6").getValue(Boolean.class);
+                        boolean wasPerformed7 = snapshot.child("Challenge" + String.valueOf(id)).child("summaryPerformed7").getValue(Boolean.class);
+
+
+                        if(wasPerformed1 == true && wasPerformed2 == true && wasPerformed3 == true &&
+                            wasPerformed4 == true && wasPerformed5 == true && wasPerformed6 == true && wasPerformed7 == true){
+
+                            myRef.child("CurrentChallenge").child("numOfActiveChallenge").setValue(ServerValue.increment(0));
+
+                            SetAlarmCancel(id);
+
+                            if(id < 10) {
+                                myRef.child("Challenge" + String.valueOf(id + 1)).child("available").setValue(true);
+                                toastMsg();
+                            }
+                        }
+                        else {
+                            toastMsg2();
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+
+                    }
+                });
+
+
+                startActivity(new Intent(SummaryOfTheWeek.this, MainActivity.class));
 
 
 
             }
-        });*/
+        });
 
 
     }
@@ -175,9 +190,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question6 = "•\tWykorzystuj deszczówkę";
                 question7 = "";
 
-
-
-                scoreID = 1;
                 break;
             case 2:
                 question1 = "•\tSegregowanie śmieci – papier, plastik i metal, szkło, bioodpady";
@@ -188,8 +200,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question6 = "";
                 question7 = "";
 
-
-                scoreID = 2;
                 break;
             case 3:
                 question1 = "•\tJeśli to możliwe – korzystaj z transportu miejskiego";
@@ -200,9 +210,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question6 = "";
                 question7 = "";
 
-
-
-                scoreID = 3;
                 break;
             case 4:
                 question1 = "•\tPosiadanie swojego wielorazowego kubka";
@@ -213,9 +220,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question6 = "•\tWykazywanie aprobaty w przypadku gdy restauracja/kawiarnia posiada bardziej ekologiczne alternatywy typu papierowe słomki, jadalne naczynia, kartonowe pojemniki";
                 question7 = "";
 
-
-
-                scoreID = 4;
                 break;
             case 5:
                 question1 = "•\tZaopatrzenie się w wielorazowy kubek/ bidon / butelka na wodę";
@@ -226,8 +230,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question6 = "•\tWoskowijki";
                 question7 = "";
 
-
-                scoreID = 5;
                 break;
             case 6:
                 question1 = "•\tPrzed zakupem czegokolwiek zastanów się dwa razy czy na pewno tego potrzebujesz";
@@ -238,9 +240,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question6 = "•\tZwracaj uwagę na skład – wspieraj uczciwe firmy i unikaj takich składników jak olej palmowy ";
                 question7 = "•\tKupuj papier toaletowy który wyprodukowany został z makulatury\n";
 
-
-
-                scoreID = 6;
                 break;
             case 7:
                 question1 = "•\tKupuj tyle ile potrzebujesz";
@@ -251,8 +250,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question6 = "";
                 question7 = "";
 
-
-                scoreID = 7;
                 break;
             case 8:
                 question1 = "•\tKupuj samotne banany";
@@ -263,8 +260,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question6 = "•\tGdy kupujesz coś na wagę – wędlina, ser – poproś sprzedawcę o zapakowanie produktu do własnego pojemnika – bez używania zbędnych folii i opakowań\n";
                 question7 = "";
 
-
-                scoreID = 8;
                 break;
             case 9:
                 question1 = "•\tKup szczoteczkę bambusową";
@@ -276,8 +271,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question7 = "";
 
 
-                scoreID = 9;
-
                 break;
             case 10:
                 question1 = "•\tOgranicz mięso lub stopniowo z niego zrezygnuj";
@@ -288,8 +281,6 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 question6 = "";
                 question7 = "";
 
-
-                scoreID = 10;
                 break;
 
             default:
@@ -357,11 +348,143 @@ public class SummaryOfTheWeek extends AppCompatActivity {
         toast.show();
     }
 
+    public void toastMsg2() {
+        Toast toast = Toast.makeText(this, "Podsumowanie dnia zostało wykonane !", Toast.LENGTH_LONG);
+        toast.show();
+    }
+
     public void SetID (int id) {
-        id = ID;
+        id = id;
+    }
+
+    public void CancelAlarm1(){
+        Intent intent = new Intent(getApplicationContext(), WeekChallenge1Broadcast.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
+        if (pendingIntent != null && alarmManager != null) {
+            alarmManager.cancel(pendingIntent);
+        }
+    }
+
+    public void CancelAlarm2(){
+        Intent intent = new Intent(getApplicationContext(), WeekChallenge2Broadcast.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
+        if (pendingIntent != null && alarmManager != null) {
+            alarmManager.cancel(pendingIntent);
+        }
+    }
+
+    public void CancelAlarm3(){
+        Intent intent = new Intent(getApplicationContext(), WeekChallenge3Broadcast.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
+        if (pendingIntent != null && alarmManager != null) {
+            alarmManager.cancel(pendingIntent);
+        }
+    }
+
+    public void CancelAlarm4(){
+        Intent intent = new Intent(getApplicationContext(), WeekChallenge4Broadcast.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
+        if (pendingIntent != null && alarmManager != null) {
+            alarmManager.cancel(pendingIntent);
+        }
+    }
+
+    public void CancelAlarm5(){
+        Intent intent = new Intent(getApplicationContext(), WeekChallenge5Broadcast.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
+        if (pendingIntent != null && alarmManager != null) {
+            alarmManager.cancel(pendingIntent);
+        }
+    }
+
+    public void CancelAlarm6(){
+        Intent intent = new Intent(getApplicationContext(), WeekChallenge6Broadcast.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
+        if (pendingIntent != null && alarmManager != null) {
+            alarmManager.cancel(pendingIntent);
+        }
+    }
+
+    public void CancelAlarm7(){
+        Intent intent = new Intent(getApplicationContext(), WeekChallenge7Broadcast.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
+        if (pendingIntent != null && alarmManager != null) {
+            alarmManager.cancel(pendingIntent);
+        }
     }
 
 
+    public void CancelAlarm8(){
+        Intent intent = new Intent(getApplicationContext(), WeekChallenge8Broadcast.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
+        if (pendingIntent != null && alarmManager != null) {
+            alarmManager.cancel(pendingIntent);
+        }
+    }
+
+    public void CancelAlarm9(){
+        Intent intent = new Intent(getApplicationContext(), WeekChallenge9Broadcast.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
+        if (pendingIntent != null && alarmManager != null) {
+            alarmManager.cancel(pendingIntent);
+        }
+    }
+
+    public void CancelAlarm10(){
+        Intent intent = new Intent(getApplicationContext(), WeekChallenge10Broadcast.class);
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
+        if (pendingIntent != null && alarmManager != null) {
+            alarmManager.cancel(pendingIntent);
+        }
+    }
+
+    public void SetAlarmCancel (int id) {
+        switch(id) {
+            case 1:
+                CancelAlarm1();
+                break;
+            case 2:
+                CancelAlarm2();
+                break;
+            case 3:
+                CancelAlarm3();
+                break;
+            case 4:
+                CancelAlarm4();
+                break;
+            case 5:
+                CancelAlarm5();
+                break;
+            case 6:
+                CancelAlarm6();
+                break;
+            case 7:
+                CancelAlarm7();
+                break;
+            case 8:
+                CancelAlarm8();
+                break;
+            case 9:
+                CancelAlarm9();
+                break;
+            case 10:
+                CancelAlarm10();
+                break;
+            default:
+                break;
+        }
+
+    }
 }
 
 

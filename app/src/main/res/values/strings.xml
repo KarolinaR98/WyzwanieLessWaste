@@ -25,5 +25,18 @@
     <string name="wyzwanie_2">Wyzwanie 2</string>
     <string name="wyzwanie_1">Wyzwanie 1</string>
 
+    <string-array name="cities">
+        <item></item>
+        <item>Kraków</item>
+        <item>Warszawa</item>
+        <item>Szczecin</item>
+        <item>Rzeszów</item>
+        <item>Gdańsk</item>
+        <item>Lublin</item>
+        <item>Poznań</item>
+        <item>Sopot</item>
+    </string-array>
+    <string name="title_activity_maps_szczecin">Map</string>
+
 
 </resources>

@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:background="@color/bg">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="40dp"
+        tools:context=".StatisticSteps">
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0" />
+
+        <Button
+            android:id="@+id/stat8"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="15sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_8"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline98"
+            app:layout_constraintStart_toStartOf="@+id/guideline99"
+            app:layout_constraintTop_toBottomOf="@+id/stat7"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/stat6"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="15sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_6"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline98"
+            app:layout_constraintStart_toStartOf="@+id/guideline99"
+            app:layout_constraintTop_toBottomOf="@+id/stat5"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/stat4"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="15sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_4"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline98"
+            app:layout_constraintStart_toStartOf="@+id/guideline99"
+            app:layout_constraintTop_toBottomOf="@+id/stat3"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/stat10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="15sp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_10"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline98"
+            app:layout_constraintStart_toStartOf="@+id/guideline99"
+            app:layout_constraintTop_toBottomOf="@+id/stat9"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/stat5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="15sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_5"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline98"
+            app:layout_constraintStart_toStartOf="@+id/guideline99"
+            app:layout_constraintTop_toBottomOf="@+id/stat4"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/stat7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="15sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_7"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline98"
+            app:layout_constraintStart_toStartOf="@+id/guideline99"
+            app:layout_constraintTop_toBottomOf="@+id/stat6"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/stat1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="15sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_1"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline98"
+            app:layout_constraintStart_toStartOf="@+id/guideline99"
+            app:layout_constraintTop_toTopOf="@+id/guideline100"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/stat9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="15sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_9"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline98"
+            app:layout_constraintStart_toStartOf="@+id/guideline99"
+            app:layout_constraintTop_toBottomOf="@+id/stat8"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/stat3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="15sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_3"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline98"
+            app:layout_constraintStart_toStartOf="@+id/guideline99"
+            app:layout_constraintTop_toBottomOf="@+id/stat2"
+            tools:targetApi="lollipop" />
+
+        <Button
+            android:id="@+id/stat2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:layout_margin="15sp"
+            android:background="@drawable/custom_button"
+            android:text="@string/wyzwanie_2"
+            android:textAllCaps="false"
+            android:textColor="#658361"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/guideline98"
+            app:layout_constraintStart_toStartOf="@+id/guideline99"
+            app:layout_constraintTop_toBottomOf="@+id/stat1"
+            tools:targetApi="lollipop" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline99"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.10" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline98"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent=".9" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline97"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="1.0" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

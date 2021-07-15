@@ -42,8 +42,6 @@ public class ChallengeStepsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_challenge_steps_);
 
-
-
         Button challengeRules = (Button)findViewById(R.id.zasadyWyzwania);
         Button lesson1Button = (Button)findViewById(R.id.lesson1);
         lesson2Button = (Button)findViewById(R.id.lesson2);
@@ -111,9 +109,9 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean wasPerformed = dataSnapshot.child("Challenge1").child("wasPerformed").getValue(Boolean.class);
+                        long wasPerformed = dataSnapshot.child("Challenge1").child("wasPerformed").getValue(Long.class);
                         ContentId = 1;
-                        if(wasPerformed == true) {
+                        if(wasPerformed != 0) {
                             startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
                         }
                         else {
@@ -135,9 +133,9 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean wasPerformed = dataSnapshot.child("Challenge2").child("wasPerformed").getValue(Boolean.class);
+                        long wasPerformed = dataSnapshot.child("Challenge2").child("wasPerformed").getValue(Long.class);
                         ContentId = 2;
-                        if(wasPerformed == true) {
+                        if(wasPerformed != 0) {
                             startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
                         }
                         else {
@@ -159,9 +157,9 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean wasPerformed = dataSnapshot.child("Challenge3").child("wasPerformed").getValue(Boolean.class);
+                        long wasPerformed = dataSnapshot.child("Challenge3").child("wasPerformed").getValue(Long.class);
                         ContentId = 3;
-                        if(wasPerformed == true) {
+                        if(wasPerformed != 0) {
                             startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
                         }
                         else {
@@ -183,9 +181,9 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean wasPerformed = dataSnapshot.child("Challenge4").child("wasPerformed").getValue(Boolean.class);
+                        long wasPerformed = dataSnapshot.child("Challenge4").child("wasPerformed").getValue(Long.class);
                         ContentId = 4;
-                        if(wasPerformed == true) {
+                        if(wasPerformed != 0) {
                             startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
                         }
                         else {
@@ -207,9 +205,9 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean wasPerformed = dataSnapshot.child("Challenge5").child("wasPerformed").getValue(Boolean.class);
+                        long wasPerformed = dataSnapshot.child("Challenge5").child("wasPerformed").getValue(Long.class);
                         ContentId = 5;
-                        if(wasPerformed == true) {
+                        if(wasPerformed != 0) {
                             startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
                         }
                         else {
@@ -232,9 +230,9 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean wasPerformed = dataSnapshot.child("Challenge6").child("wasPerformed").getValue(Boolean.class);
+                        long wasPerformed = dataSnapshot.child("Challenge6").child("wasPerformed").getValue(Long.class);
                         ContentId = 6;
-                        if(wasPerformed == true) {
+                        if(wasPerformed != 0) {
                             startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
                         }
                         else {
@@ -256,9 +254,9 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean wasPerformed = dataSnapshot.child("Challenge7").child("wasPerformed").getValue(Boolean.class);
+                        long wasPerformed = dataSnapshot.child("Challenge7").child("wasPerformed").getValue(Long.class);
                         ContentId = 7;
-                        if(wasPerformed == true) {
+                        if(wasPerformed != 0) {
                             startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
                         }
                         else {
@@ -280,9 +278,9 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean wasPerformed = dataSnapshot.child("Challenge8").child("wasPerformed").getValue(Boolean.class);
+                        long wasPerformed = dataSnapshot.child("Challenge8").child("wasPerformed").getValue(Long.class);
                         ContentId = 8;
-                        if(wasPerformed == true) {
+                        if(wasPerformed != 0) {
                             startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
                         }
                         else {
@@ -304,9 +302,9 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean wasPerformed = dataSnapshot.child("Challenge9").child("wasPerformed").getValue(Boolean.class);
+                        long wasPerformed = dataSnapshot.child("Challenge9").child("wasPerformed").getValue(Long.class);
                         ContentId = 9;
-                        if(wasPerformed == true) {
+                        if(wasPerformed != 0) {
                             startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
                         }
                         else {
@@ -328,9 +326,9 @@ public class ChallengeStepsActivity extends AppCompatActivity {
                 myRef.addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
-                        boolean wasPerformed = dataSnapshot.child("Challenge10").child("wasPerformed").getValue(Boolean.class);
+                        long wasPerformed = dataSnapshot.child("Challenge10").child("wasPerformed").getValue(Long.class);
                         ContentId = 10;
-                        if(wasPerformed == true) {
+                        if(wasPerformed != 0) {
                             startActivity(new Intent(ChallengeStepsActivity.this, ChallengeContent.class));
                         }
                         else {
