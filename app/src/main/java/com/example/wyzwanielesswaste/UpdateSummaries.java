@@ -77,8 +77,6 @@ public class UpdateSummaries extends AppCompatActivity {
 
                 if(startChallengeDate != 0) {
 
-
-
                     long difference = today - startChallengeDate;
                     long differenceInDays = difference / (1000 * 3600 * 24);
 
@@ -111,7 +109,6 @@ public class UpdateSummaries extends AppCompatActivity {
                         myRef.child(userID).child("Challenge" + String.valueOf(ID)).child("active2").setValue(true);
                         myRef.child(userID).child("Challenge" + String.valueOf(ID)).child("active1").setValue(true);
                     }
-
                     else if (differenceInDays >= 4) {
                         myRef.child(userID).child("Challenge" + String.valueOf(ID)).child("active7").setValue(false);
                         myRef.child(userID).child("Challenge" + String.valueOf(ID)).child("active6").setValue(false);

@@ -4,15 +4,32 @@ import android.app.Activity;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
-public class MainActivity extends Activity {
+import static android.content.ContentValues.TAG;
 
+public class MainActivity extends Activity {
 
 
     @Override
@@ -20,8 +37,16 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FirebaseAuth fAuth = FirebaseAuth.getInstance();
 
-        MyDBHandler myDBHandler = new MyDBHandler(this, null, null, MyDBHandler.DB_VERSION);
+
+        if(fAuth.getCurrentUser() == null) {
+            startActivity(new Intent(getApplicationContext(), Register.class));
+            finish();
+        }
+
+
+        Manager manager = new Manager();
 
         Button buttonRW = (Button) findViewById(R.id.rozpocznijWyzwanie);
         Button myAccountBtm = (Button) findViewById(R.id.mojeKonto);
@@ -59,8 +84,6 @@ public class MainActivity extends Activity {
 
         MyAlarmDailyAdvice();
         QuestionnarieBroadcastAlarm();
-
-
 
     }
 

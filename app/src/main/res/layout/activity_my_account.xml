@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="1.0" />
+        app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline__"
@@ -75,6 +75,7 @@
         android:id="@+id/daneKonta"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@drawable/custom_button"
         android:text="Dane konta"
         android:textAllCaps="false"
@@ -82,13 +83,14 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline_"
         app:layout_constraintEnd_toStartOf="@+id/guidelin_e"
         app:layout_constraintStart_toStartOf="@+id/guideline___"
-        app:layout_constraintTop_toTopOf="@+id/guideline__"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintTop_toTopOf="@+id/guideline"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/statystyki"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:background="@drawable/custom_button"
         android:text="Statystyki"
         android:textAllCaps="false"
@@ -96,13 +98,14 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline_"
         app:layout_constraintEnd_toStartOf="@+id/guidelin_e"
         app:layout_constraintStart_toStartOf="@+id/guideline___"
-        app:layout_constraintTop_toTopOf="@+id/guideline__"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintTop_toBottomOf="@+id/daneKonta"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/odznaki"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:background="@drawable/custom_button"
         android:text="Odznaki"
         android:textAllCaps="false"
@@ -110,7 +113,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline_"
         app:layout_constraintEnd_toStartOf="@+id/guidelin_e"
         app:layout_constraintStart_toStartOf="@+id/guideline___"
-        app:layout_constraintTop_toTopOf="@+id/guideline__"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintTop_toBottomOf="@+id/statystyki"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

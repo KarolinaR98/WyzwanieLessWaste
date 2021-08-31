@@ -84,7 +84,6 @@ public class WeekTemplate extends AppCompatActivity {
                     summaryDay1.setClickable(false);
                 } else {
                     check.setVisibility(View.INVISIBLE);
-
                 }
 
                 if (summaryPerformed2 == true) {

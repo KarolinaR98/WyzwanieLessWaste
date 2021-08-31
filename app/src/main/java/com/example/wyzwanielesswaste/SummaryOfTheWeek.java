@@ -167,7 +167,10 @@ public class SummaryOfTheWeek extends AppCompatActivity {
                 });
 
 
-                startActivity(new Intent(SummaryOfTheWeek.this, MainActivity.class));
+                Intent intent = new Intent(SummaryOfTheWeek.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
+                finish();
 
 
 
@@ -358,94 +361,95 @@ public class SummaryOfTheWeek extends AppCompatActivity {
     }
 
     public void CancelAlarm1(){
-        Intent intent = new Intent(getApplicationContext(), WeekChallenge1Broadcast.class);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
-        if (pendingIntent != null && alarmManager != null) {
-            alarmManager.cancel(pendingIntent);
-        }
+        Intent intent = new Intent(this, WeekChallenge1Broadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(),
+                101, intent, 0);
+        AlarmManager am = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pendingIntent);
+        pendingIntent.cancel();
+
     }
 
     public void CancelAlarm2(){
-        Intent intent = new Intent(getApplicationContext(), WeekChallenge2Broadcast.class);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
-        if (pendingIntent != null && alarmManager != null) {
-            alarmManager.cancel(pendingIntent);
-        }
+        Intent intent = new Intent(this, WeekChallenge2Broadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(),
+                101, intent, 0);
+        AlarmManager am = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pendingIntent);
+        pendingIntent.cancel();
     }
 
     public void CancelAlarm3(){
-        Intent intent = new Intent(getApplicationContext(), WeekChallenge3Broadcast.class);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
-        if (pendingIntent != null && alarmManager != null) {
-            alarmManager.cancel(pendingIntent);
-        }
+        Intent intent = new Intent(this, WeekChallenge3Broadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(),
+                101, intent, 0);
+        AlarmManager am = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pendingIntent);
+        pendingIntent.cancel();
     }
 
     public void CancelAlarm4(){
-        Intent intent = new Intent(getApplicationContext(), WeekChallenge4Broadcast.class);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
-        if (pendingIntent != null && alarmManager != null) {
-            alarmManager.cancel(pendingIntent);
-        }
+        Intent intent = new Intent(this, WeekChallenge4Broadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(),
+                101, intent, 0);
+        AlarmManager am = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pendingIntent);
+        pendingIntent.cancel();
     }
 
     public void CancelAlarm5(){
-        Intent intent = new Intent(getApplicationContext(), WeekChallenge5Broadcast.class);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
-        if (pendingIntent != null && alarmManager != null) {
-            alarmManager.cancel(pendingIntent);
-        }
+        Intent intent = new Intent(this, WeekChallenge5Broadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(),
+                101, intent, 0);
+        AlarmManager am = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pendingIntent);
+        pendingIntent.cancel();
     }
 
     public void CancelAlarm6(){
-        Intent intent = new Intent(getApplicationContext(), WeekChallenge6Broadcast.class);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
-        if (pendingIntent != null && alarmManager != null) {
-            alarmManager.cancel(pendingIntent);
-        }
+        Intent intent = new Intent(this, WeekChallenge6Broadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(),
+                101, intent, 0);
+        AlarmManager am = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pendingIntent);
+        pendingIntent.cancel();
     }
 
     public void CancelAlarm7(){
-        Intent intent = new Intent(getApplicationContext(), WeekChallenge7Broadcast.class);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
-        if (pendingIntent != null && alarmManager != null) {
-            alarmManager.cancel(pendingIntent);
-        }
+        Intent intent = new Intent(this, WeekChallenge7Broadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(),
+                101, intent, 0);
+        AlarmManager am = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pendingIntent);
+        pendingIntent.cancel();
     }
 
 
     public void CancelAlarm8(){
-        Intent intent = new Intent(getApplicationContext(), WeekChallenge8Broadcast.class);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
-        if (pendingIntent != null && alarmManager != null) {
-            alarmManager.cancel(pendingIntent);
-        }
+        Intent intent = new Intent(this, WeekChallenge8Broadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(),
+                101, intent, 0);
+        AlarmManager am = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pendingIntent);
+        pendingIntent.cancel();
     }
 
     public void CancelAlarm9(){
-        Intent intent = new Intent(getApplicationContext(), WeekChallenge9Broadcast.class);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
-        if (pendingIntent != null && alarmManager != null) {
-            alarmManager.cancel(pendingIntent);
-        }
+        Intent intent = new Intent(this, WeekChallenge9Broadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(),
+                101, intent, 0);
+        AlarmManager am = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pendingIntent);
+        pendingIntent.cancel();
     }
 
     public void CancelAlarm10(){
-        Intent intent = new Intent(getApplicationContext(), WeekChallenge10Broadcast.class);
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        PendingIntent pendingIntent = PendingIntent.getService(getApplicationContext(), 101, intent, PendingIntent.FLAG_NO_CREATE);
-        if (pendingIntent != null && alarmManager != null) {
-            alarmManager.cancel(pendingIntent);
-        }
+        Intent intent = new Intent(this, WeekChallenge10Broadcast.class);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this.getApplicationContext(),
+                101, intent, 0);
+        AlarmManager am = (AlarmManager) getApplicationContext().getSystemService(Context.ALARM_SERVICE);
+        am.cancel(pendingIntent);
+        pendingIntent.cancel();
     }
 
     public void SetAlarmCancel (int id) {

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wyzwanielesswaste">
-
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -37,31 +36,71 @@
             android:value="@string/google_maps_key" />
 
         <activity
+            android:name=".ActivateChallengeNotification"
+            android:screenOrientation="portrait" />
+
+        <activity
             android:name=".MapsSzczecin"
-            android:label="@string/title_activity_maps_szczecin"></activity>
-        <activity android:name=".ChooseCity" />
-        <activity android:name=".StatisticSteps" />
-        <activity android:name=".Statistics" />
-        <activity android:name=".UpdateSummaries" />
-        <activity android:name=".EcoLifestyle" />
-        <activity android:name=".WeekTemplate" />
-        <activity android:name=".SummarySteps" />
-        <activity android:name=".UserData" />
-        <activity android:name=".Login" />
-        <activity android:name=".Register">
+            android:label="@string/title_activity_maps_szczecin" />
+        <activity
+            android:name=".ChooseCity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StatisticSteps"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Statistics"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UpdateSummaries"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EcoLifestyle"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".WeekTemplate"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SummarySteps"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UserData"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Login"
+            android:screenOrientation="portrait"
+            />
+        <activity
+            android:name=".Register"
+            android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Manager" />
-        <activity android:name=".SummaryOfTheWeek" />
-        <activity android:name=".MyAccount" />
-        <activity android:name=".ChallengeContent" />
-        <activity android:name=".ChallengeRules" />
-        <activity android:name=".ChallengeStepsActivity" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Manager"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SummaryOfTheWeek"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MyAccount"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChallengeContent"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChallengeRules"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ChallengeStepsActivity"
+            android:screenOrientation="portrait" />
 
         <receiver
             android:name=".DailyAdviceBroadcast"

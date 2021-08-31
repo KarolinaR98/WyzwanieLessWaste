@@ -1,30 +1,26 @@
 package com.example.wyzwanielesswaste;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
 
 import android.app.AlarmManager;
-import android.app.Notification;
 import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.Image;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
-import android.os.Vibrator;
-import android.provider.Settings;
 import android.util.Log;
-import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,22 +28,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 
 import static android.content.ContentValues.TAG;
-import static com.example.wyzwanielesswaste.Channel.CHANNEL_1_ID;
 
-public class Manager extends AppCompatActivity {
+public class ActivateChallengeNotification extends AppCompatActivity {
 
-    public static int id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_manager);
-
-        ChallengeStepsActivity challengeStepsActivity = new ChallengeStepsActivity();
-        Date date = new Date();
+        setContentView(R.layout.activity_activate_challenge_notification);
 
         Animation fadeOut = new AlphaAnimation(1, 0);
         fadeOut.setInterpolator(new AccelerateInterpolator());
@@ -58,23 +50,23 @@ public class Manager extends AppCompatActivity {
 
         image.setAnimation(fadeOut);
 
-        id = challengeStepsActivity.GetId();
 
-        SetAlarm(id);
 
         String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child(userID);
+        DatabaseReference myRef = FirebaseDatabase.getInstance().getReference().child(userID).child("CurrentChallenge");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                boolean isAvailable = dataSnapshot.child("Challenge" + String.valueOf(id)).child("available").getValue(Boolean.class);
+            int currentChallenge = dataSnapshot.child("numOfActiveChallenge").getValue(Integer.class);
 
-                if(isAvailable == true) {
-                    myRef.child("Challenge" + String.valueOf(id)).child("wasPerformed").setValue(date.getTime());
-                    myRef.child("CurrentChallenge").child("numOfActiveChallenge").setValue(id);
-                }
+            if (currentChallenge !=0) {
+                SetAlarm(currentChallenge);
             }
+
+            }
+
+
 
             @Override
             public void onCancelled(DatabaseError error) {
@@ -83,24 +75,17 @@ public class Manager extends AppCompatActivity {
         });
 
 
-
-
-
-
-
         final Handler handler = new Handler(Looper.getMainLooper());
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Toast toast = Toast.makeText(getApplicationContext(), "Wyzwanie zostało aktywowane !", Toast.LENGTH_LONG);
-                toast.show();
-                startActivity(new Intent(Manager.this, ChallengeContent.class));
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                startActivity(intent);
             }
         }, 1000);
 
-
     }
-
 
     public void MyAlarmChallenge1() {
         Calendar calendar = Calendar.getInstance();
@@ -125,7 +110,7 @@ public class Manager extends AppCompatActivity {
     public void MyAlarmChallenge2() {
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 12);
-        calendar.set(Calendar.MINUTE, 00);
+        calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
 
         if (calendar.getTime().compareTo((new Date())) < 0)
@@ -335,10 +320,9 @@ public class Manager extends AppCompatActivity {
                 MyAlarmChallenge10();
                 break;
             default:
-               break;
+                break;
         }
 
     }
 
-
-    }
+}

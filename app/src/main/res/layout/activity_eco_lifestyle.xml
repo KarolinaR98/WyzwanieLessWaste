@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="1.0" />
+        app:layout_constraintGuide_percent="0.9" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelinex__"
@@ -75,6 +75,7 @@
         android:id="@+id/ecoMiasto"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@drawable/custom_button"
         android:text="Eko miasto"
         android:textAllCaps="false"
@@ -82,13 +83,14 @@
         app:layout_constraintBottom_toTopOf="@+id/guidelinex_"
         app:layout_constraintEnd_toStartOf="@+id/guidelin_xe"
         app:layout_constraintStart_toStartOf="@+id/guidelinex___"
-        app:layout_constraintTop_toTopOf="@+id/guidelinex__"
-        app:layout_constraintVertical_bias="0.55" />
+        app:layout_constraintTop_toTopOf="@+id/guidelinex"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/polecane"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:background="@drawable/custom_button"
         android:text="Polecane marki"
         android:textAllCaps="false"
@@ -96,13 +98,14 @@
         app:layout_constraintBottom_toTopOf="@+id/guidelinex_"
         app:layout_constraintEnd_toStartOf="@+id/guidelin_xe"
         app:layout_constraintStart_toStartOf="@+id/guidelinex___"
-        app:layout_constraintTop_toTopOf="@+id/guidelinex__"
-        app:layout_constraintVertical_bias="0.65" />
+        app:layout_constraintTop_toBottomOf="@+id/ecoMiasto"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/kupony"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:background="@drawable/custom_button"
         android:text="Kupony"
         android:textAllCaps="false"
@@ -110,7 +113,7 @@
         app:layout_constraintBottom_toTopOf="@+id/guidelinex_"
         app:layout_constraintEnd_toStartOf="@+id/guidelin_xe"
         app:layout_constraintStart_toStartOf="@+id/guidelinex___"
-        app:layout_constraintTop_toTopOf="@+id/guidelinex__"
-        app:layout_constraintVertical_bias="0.75" />
+        app:layout_constraintTop_toBottomOf="@+id/polecane"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

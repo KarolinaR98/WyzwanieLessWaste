@@ -88,7 +88,7 @@ public class Register extends AppCompatActivity {
                 }
 
                 if (password.isEmpty()) {
-                    mEmail.setError("Wprowadź hasło");
+                    mPassword.setError("Wprowadź hasło");
                 }
 
                 if(password.length() < 6) {
